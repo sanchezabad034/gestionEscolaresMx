@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html ng-app="historial">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./historialmedico-component.css">
+    <link rel="stylesheet" href="../pagosydevoluciones-component/articulos.css">
+    <link rel="icon" href="https://web.escolaresmx.com/theme/img/icon.png">
+    <title>Salud</title>
+
+    <!--Angular-->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!--Bootrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"></script>
+    <!--Font awesome-->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css"
+      integrity="sha512-3M00D/rn8n+2ZVXBO9Hib0GKNpkm8MSUU/e2VNthDyBYxKWG+BftNYYcuEjXlyrSO637tidzMBXfE7sQm0INUg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/d2cb8774a8.js"
+      crossorigin="anonymous"></script>
+    <!--Component historial-->
+    <script src="../historialmedico-component/historialmedico-component.js"></script>
+    <script src="..//historialmedico-component/googlle-charts.js"></script>
+    <!--google charts-->
+    <script type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+      //script de graficas para problemas
+          google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawVisualization);
+
+          function drawVisualization() {
+          // Some raw data (not necessarily accurate)
+          var data = google.visualization.arrayToDataTable([
+          ['problemas', ''],
+          ['baja_visión',  0      ],
+          ['lentes',  0 ],
+          ['epilepsia',  0],
+          ['problemas_aprendizaje',  0],
+          ['alergias',  0 ],
+          ['discapacidad_motriz', 0], 
+          ['sobrepeso', 0], 
+          ['diabetes', 0], 
+          ['pie_plano', 0],
+          ['aptitudes_sobrealientes ', 0], 
+          ['protesis', 0],
+          ['debilidad_auditiva', 0],
+          ['tratamiento_medico', 0],
+          ['realiza_deporte', 0],
+          ['empleo', 0],
+          ['hijos', 0],
+          ]);
+
+          var options = {
+          title : 'Enfermedades de la comunidad estudiantil FEBRERO - JULIO 2022',
+          vAxis: {title: 'Datos'},
+          hAxis: {title: 'Problemas'},
+          seriesType: 'bars',
+          series: {5: {type: ''}}
+          };
+
+          var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+          }
+     </script>
+    <script>
+  //script de graficas para tallas
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+      // Some raw data (not necessarily accurate)
+      var data = google.visualization.arrayToDataTable([
+      ['tallas', 'punto-medio'],
+      ['CH',  0      ],
+      ['M',  0 ],
+      ['G',  0],
+      ['XL', 0], 
+      ['XXL', 0]
+      
+      ]);
+
+      var options = {
+      title : 'Tallas de la comunidad estudiantil, Febrero Julio 2022',
+      vAxis: {title: 'Datos'},
+      hAxis: {title: 'Problemas'},
+      seriesType: 'bars',
+      series: {5: {type: ''}}
+      };
+
+      var chart = new google.visualization.ComboChart(document.getElementById('chart_tallas'));
+      chart.draw(data, options);
+      }
+ </script>
+    <style>
+  body{
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+  }
+ </style>
+  </head>
+  <body ng-controller="historialController">
+    <div>
+      <div class="titles_2">
+        <h1>Salud</h1>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <i class="fa fa-light fa-bars" id="menu"></i>
+    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+      data-bs-target="#exampleModal" id="btn-options">
+      Opciones
+    </button>
+    <!-- <i class="fa-solid fa-ellipsis" id="points-menu"></i> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Opciones</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-cloud">
+              <i class="fa -regular fa-cloud-arrow-down" id="icon-cloud"></i>
+              <div class="titles-container">
+
+                <button id="btn-modal-button" type="submit" class="btn
+                  btn-primary"><h6><b><a href="#">Exportar tallas</b></h6>
+                    <p>Descarga los datos desde Gsuite, puede llevar unos
+                      minutos</p></a></button>
+              </div>
+              <hr>
+            </div>
+            <div class="container-cloud">
+              <i class="fa -regular fa-cloud-arrow-down" id="icon-cloud"></i>
+              <div class="titles-container">
+                <button id="btn-modal-button" type="submit" class="btn
+                  btn-primary">
+                  <a href="#"><h6><b>Exportar Historiales médicos</b></h6>
+                    <p>Descarga los datos desde Gsuite, puede llevar unos
+                      minutos</p>
+                  </a> </button>
+              </div>
+              <hr>
+            </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-graphics">
+      <div id="chart_div" style="width: 900px; height: 609px;"
+        class="justify-content-center"></div>
+      <div id="chart_tallas" style="width: 309px; height: 261px;"></div>
+
+    </div>
+
+    <div class="table">
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="fa -solid fa-search"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Escribe un nombre y pulsa ENTER para buscar" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">NO.</th>
+            <th scope="col">ALUMNO</th>
+            <th scope="col">TIPO DE SANGRE</th>
+            <th scope="col">EPILEPSIA</th>
+            <th scope="col">ALERGIAS</th>
+            <th scope="col">SOBREPESO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+
+            <th scope="row">1</th>
+            <td> <button type="button" class="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                data-bs-whatever="@mdo" id="btn-modal-lopez">LOPEZ DIAZ LILITH</button></td>
+            <td>A+</td>
+            <td>FALSE</td>
+            <td>TRUE</td>
+            <td>FALSE</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td><button type="button" class="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                data-bs-whatever="@mdo" id="btn-modal-lopez">BERUMEN RAMIREZ
+                DAVID VICTOR</button></td>
+            <td>0+</td>
+            <td>FALSE</td>
+            <td>FALSE</td>
+            <td>NOMAS POQUITO U.U</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td><button type="button" class="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#exampleModal3"
+                data-bs-whatever="@mdo" id="btn-modal-lopez">MORENO RODRIGUEZ
+                CRISTHIAN CHANTAL</button>
+            </td>
+            <td>0+</td>
+            <td>FALSE</td>
+            <td>FALSE</td>
+            <td>FALSE</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td><button type="button" class="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#exampleModal4"
+                data-bs-whatever="@mdo" id="btn-modal-lopez">SCHIETEKAT
+                CASTELLOS CESAR ALBERTO</button>
+            </td>
+            <td>0+</td>
+            <td>FALSE</td>
+            <td>FALSE</td>
+            <td>nomas poquito</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- ventanas modales -->
+      <div class="modal fade" id="exampleModal1" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" id="modal-dialog1">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Opciones del alumno</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body1">
+              <div class="title-modal">
+                <h2>LOPEZ DIAZ LILITH</h2>
+              </div>
+              <hr>
+              <div class="container-options">
+                <i class="fa -regular fa-gear" id="settings-modal"></i>
+                <div class="descriptions">
+                  <button type="button" class="btn btn-primary"
+                    data-bs-toggle="modal" data-bs-target="#settings-historial"
+                    data-bs-whatever="@mdo" id="setting-historial">
+                    <h6>Modificar historial médico</h6>
+                    <p>Tutor(es), Seguro, institución médica</p>
+                  </button>
+                </div>
+                <hr>
+                <i class="fa -regular fa-circle-info" id="settings-modal"></i>
+                <div class="descriptions">
+                  <button type="button" class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#historial-enfermedades"
+                    data-bs-whatever="@mdo" id="setting-historial">
+                    <h6>Modificar historial de enfermedades</h6>
+                    <p>Información médica</p>
+                  </button>
+                </div>
+                <hr>
+              </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ventanas modales -->
+      <div class="modal fade" id="exampleModal2" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" id="modal-dialog1">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Opciones del alumno</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body1">
+              <div class="title-modal">
+                <h2>BERUMEN RAMIREZ DAVID VICTOR</h2>
+              </div>
+              <hr>
+              <div class="container-options">
+                <i class="fa -regular fa-gear" id="settings-modal"></i>
+                <div class="descriptions">
+                  <button type="button" class="btn btn-primary"
+                    data-bs-toggle="modal" data-bs-target="#settings-historial"
+                    data-bs-whatever="@mdo" id="setting-historial">
+                    <h6>Modificar historial médico</h6>
+                    <p>Tutor(es), Seguro, institución médica</p>
+                  </button>
+                </div>
+                <hr>
+                <i class="fa -regular fa-circle-info" id="settings-modal"></i>
+                <div class="descriptions">
+                  <button type="button" class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#historial-enfermedades"
+                    data-bs-whatever="@mdo" id="setting-historial">
+                    <h6>Modificar historial de enfermedades</h6>
+                    <p>Información médica</p>
+                  </button>
+                </div>
+                <hr>
+              </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ventanas modales -->
+      <div class="modal fade" id="exampleModal3" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" id="modal-dialog1">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Opciones del alumno</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body1">
+              <div class="title-modal">
+                <h2>MORENO RODRIGUEZ CRISTHIAN CHANTAL</h2>
+              </div>
+              <hr>
+              <div class="container-options">
+                <i class="fa -regular fa-gear" id="settings-modal"></i>
+                <button type="button" class="btn btn-primary"
+                  data-bs-toggle="modal" data-bs-target="#settings-historial"
+                  data-bs-whatever="@mdo" id="setting-historial">
+                  <h6>Modificar historial médico</h6>
+                  <p>Tutor(es), Seguro, institución médica</p>
+                </button>
+                <hr>
+                <i class="fa -regular fa-circle-info" id="settings-modal"></i>
+                <div class="descriptions">
+                  <button type="button" class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#historial-enfermedades"
+                    data-bs-whatever="@mdo" id="setting-historial">
+                    <h6>Modificar historial de enfermedades</h6>
+                    <p>Información médica</p>
+                  </button>
+                </div>
+                <hr>
+              </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ventanas modales -->
+      <div class="modal fade" id="exampleModal4" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" id="modal-dialog1">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Opciones del alumno</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body1">
+              <div class="title-modal">
+                <h2>SCHIETEKAT CASTELLOS CESAR ALBERTO</h2>
+              </div>
+              <hr>
+              <div class="container-options">
+                <i class="fa -regular fa-gear" id="settings-modal"></i>
+                <button type="button" class="btn btn-primary"
+                  data-bs-toggle="modal" data-bs-target="#settings-historial"
+                  data-bs-whatever="@mdo" id="setting-historial">
+                  <h6>Modificar historial médico</h6>
+                  <p>Tutor(es), Seguro, institución médica</p>
+                </button>
+                <hr>
+                <i class="fa -regular fa-circle-info" id="settings-modal"></i>
+                <div class="descriptions">
+                  <button type="button" class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#historial-enfermedades"
+                    data-bs-whatever="@mdo" id="setting-historial">
+                    <h6>Modificar historial de enfermedades</h6>
+                    <p>Información médica</p>
+                  </button>
+                </div>
+                <hr>
+              </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Modal settings-->
+      <div class="modal fade" id="settings-historial" tabindex="-1"
+        aria-labelledby="settings-historial" aria-hidden="true">
+        <div class="modal-dialog modal-lg" id="body-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="settings-historial">Información</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="containerrequerido">
+                <div class="parentesco">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Parentesco del tutor</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        parentesco.options track by option.id"
+                        ng-model="parentesco.A_options" class="combobox"
+                        id="parentesco_combo">
+                        <!-- Opciones del Combo -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="nombre">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Nombre</p>
+                        <input type="text">
+                      </div>
+
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="lugares_trabajo" id="parentesco">
+                    <div class="row align-items-start">
+                      <div class="col">
+                        <p>Lugar de trabajo</p>
+                        <input type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="parantesco2">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Parentesco 2</p>
+                      </div>
+                      <div class="col">
+                        <select ng-options="option.name for option in
+                          parentesco2.options track by option.id"
+                          ng-model="parentesco2.A_options" class="combobox"
+                          id="parentesco_combo">
+                          <!-- Opciones del Combo -->
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="nombre2">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Nombre</p>
+                        <input type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="lugar_trabajo2">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Lugar de trabajo</p>
+                        <input type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="clinicas">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Clinica del IMSS</p>
+                        <input type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="estudiatrabaja">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Trabaja ádemas de estudiar trabaja</p>
+                      </div>
+                      <div class="col">
+                        <select ng-options="option.name for option in
+                          trabaja.options track by option.id"
+                          ng-model="trabaja.A_options" class="combobox"
+                          id="parentesco_combo">
+                          <!-- Opciones del Combo -->
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="depende">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Depende económicamente</p>
+                      </div>
+                      <div class="col">
+                        <select ng-options="option.name for option in
+                          depende.options track by option.id"
+                          ng-model="depende.A_options" class="combobox"
+                          id="parentesco_combo">
+                          <!-- Opciones del Combo -->
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="trabaja">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Trabajo de quien depende</p>
+                      </div>
+                      <div class="col">
+                        <select ng-options="option.name for option in
+                          profesiones.options track by option.id"
+                          ng-model="profesiones.A_options" class="combobox"
+                          id="parentesco_combo">
+                          <!-- Opciones del Combo -->
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="protegido">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Protegido por institución de salud</p>
+                      </div>
+                      <div class="col">
+                        <select ng-options="option.name for option in
+                          protegido.options track by option.id"
+                          ng-model="protegido.A_options" class="combobox"
+                          id="parentesco_combo">
+                          <!-- Opciones del Combo -->
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="institucionservicio">
+                    <div class="row align-items-start">
+                      <div class="col" id="parentesco">
+                        <p>Institución de servicios medicos</p>
+                      </div>
+                      <div class="col">
+                        <select ng-options="option.name for option in
+                          seguros.options track by option.id"
+                          ng-model="seguros.A_options" class="combobox"
+                          id="parentesco_combo">
+                          <!-- Opciones del Combo -->
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="btn-save">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Modal historial enfermedades-->
+      <div class="modal fade" id="historial-enfermedades" tabindex="-1"
+        aria-labelledby=" historial-enfermedades" aria-hidden="true">
+        <div class="modal-dialog modal-lg" id="body-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id=" historial-enfermedades">Editar
+                historial de enfermedades</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="containerrequerido">
+                <div class="typeblood">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Tipo de sangre</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        typeblood.options track by option.id"
+                        ng-model="typeblood.A_options" class="combobox"
+                        id="parentesco_combo">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="lowvision">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Baja visión</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        lowvision.options track by option.id"
+                        ng-model="lowvision.A_options" class="combobox"
+                        id="parentesco_combo">
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+
+                <div class="motordisability">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Discapacidad motriz</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        motordisability.options track by option.id"
+                        ng-model="motordisability.A_options" class="combobox"
+                        id="parentesco_combo">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="useofprothesesy">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Discapacidad motriz</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        useofprothesesy.options track by option.id"
+                        ng-model="useofprothesesy.A_options" class="combobox"
+                        id="parentesco_combo">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="useofglasses">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Uso de lentes</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        useofglasses.options track by option.id"
+                        ng-model="useofglasses.A_options" class="combobox"
+                        id="parentesco_combo">
+                      </select>
+                    </div>
+                    <input type="text" class="observaciones"
+                      placeholder="Observaciones...">
+                  </div>
+                </div>
+                <hr>
+
+                <div class="Overweight">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Sobrepeso u obesidad</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        Overweight.options track by option.id"
+                        ng-model="Overweight.A_options" class="combobox"
+                        id="parentesco_combo">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="hearingimpairment">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Debilidad auditiva</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        hearingimpairment.options track by option.id"
+                        ng-model="hearingimpairment.A_options" class="combobox"
+                        id="parentesco_combo">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="Epilepsy">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Epilepsia</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        Epilepsy.options track by option.id"
+                        ng-model="Epilepsy.A_options" class="combobox"
+                        id="parentesco_combo">
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="Diabetes">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Diabetes</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        Diabetes.options track by option.id"
+                        ng-model="Diabetes.A_options" class="combobox"
+                        id="parentesco_combo">
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="Hypertension">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Hipertensión arterial</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        Hypertension.options track by option.id"
+                        ng-model="Hypertension.A_options" class="combobox"
+                        id="parentesco_combo">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+
+                <div class="learningdisabilities">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Problemas de aprendizaje</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        learningdisabilities.options track by option.id"
+                        ng-model="learningdisabilities.A_options"
+                        class="combobox" id="parentesco_combo">
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="Flatfoot">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Problemas de aprendizaje</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        Flatfoot.options track by option.id"
+                        ng-model="Flatfoot.A_options" class="combobox"
+                        id="parentesco_combo">
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="TreatmentMedical">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Tratamiento medico</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        TreatmentMedical.options track by option.id"
+                        ng-model="TreatmentMedical.A_options" class="combobox"
+                        id="parentesco_combo">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="Allergies">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Alergias a medicamentos</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        Allergies.options track by option.id"
+                        ng-model="Allergies.A_options" class="combobox"
+                        id="parentesco_combo">
+
+                      </select>
+                    </div>
+                    <input type="text" class="observaciones"
+                      placeholder="Observaciones...">
+                  </div>
+                </div>
+                <hr>
+
+                <div class="outstanding">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Aptitudes sobresalientes</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        outstanding.options track by option.id"
+                        ng-model="outstanding.A_options" class="combobox"
+                        id="parentesco_combo">
+                      </select>
+                    </div>
+                    <input type="text" class="observaciones"
+                      placeholder="Observaciones...">
+                  </div>
+                </div>
+                <hr>
+
+                <div class="sport">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Realiza deporte</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        sport.options
+                        track by option.id" ng-model="sport.A_options"
+                        class="combobox" id="parentesco_combo">
+
+                      </select>
+                    </div>
+                    <input type="text" class="observaciones"
+                      placeholder="Observaciones...">
+                  </div>
+                </div>
+                <hr>
+
+                <div class="children">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Tiene hijos</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        children.options track by option.id"
+                        ng-model="children.A_options" class="combobox"
+                        id="parentesco_combo">
+
+                      </select>
+
+                    </div>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="toast_first_auxiliaries">
+                  <div class="row align-items-start">
+                    <div class="col" id="parentesco">
+                      <p>Otro(s) padecimiento(s)</p>
+                    </div>
+                    <div class="col">
+                      <select ng-options="option.name for option in
+                        toast_first_auxiliaries.options track by option.id"
+                        ng-model="toast_first_auxiliaries.A_options"
+                        class="combobox" id="parentesco_combo">
+
+                      </select>
+
+                    </div>
+                    <input type="text" class="observaciones"
+                      placeholder="Observaciones...">
+                  </div>
+                </div>
+                <hr>
+
+              </div>
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="btn-save">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </body>
+  </html>

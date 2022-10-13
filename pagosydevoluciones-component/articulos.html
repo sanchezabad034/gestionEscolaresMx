@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html ng-app="pagosydevoluciones">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../pagosydevoluciones-component/articulos.css">
+    <link rel="icon" href="https://web.escolaresmx.com/theme/img/icon.png">
+     <!--Angular-->
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+     <!-- Bootstrap 5.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+     <!--Font awesome-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha512-3M00D/rn8n+2ZVXBO9Hib0GKNpkm8MSUU/e2VNthDyBYxKWG+BftNYYcuEjXlyrSO637tidzMBXfE7sQm0INUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <script src="https://kit.fontawesome.com/d2cb8774a8.js" crossorigin="anonymous"></script>
+     <!--Component pagos-->
+     <script src="../pagosydevoluciones-component/pagosydevoluciones.js"></script>
+    <title>Articulos</title>
+
+    <style>
+     body{
+          background-color: #f2f2f2;
+     }
+   </style>
+</head>
+<body ng-controller="pagosController">
+     <div>
+          <div class="titles2">
+          <h1>Área</h1>
+          </div>
+          <div class="container_title">
+               <h2 >Bibloteca</h2>
+          </div>
+     </div>
+     <div class="containerbuscador">
+          <div class="row" id="containerserachbuscador">
+               <div class="col col-sm-1 " >
+                    <div class="iconsearch">
+                         <i class="fa -solid fa-magnifying-glass"></i>
+                    </div>
+               </div>
+               <div class="col-8">
+                    <input type="search" placeholder="Busca por nombre o codigo de barras" id="search">
+               </div>
+          </div>
+     </div>
+
+     <!--Tabla -->
+     <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">BARCODE</th>
+              <th scope="col">TITULO</th>
+              <th scope="col">AUTOR</th>
+              <th scope="col">EDITORIAL</th>
+              <th scope="col">ISBN</th>
+              <th scope="col">INVENTARIO</th>
+            </tr>
+          </thead>
+          <tbody >
+            
+          </tbody>
+     </table>
+
+     <div class="plusbtn">
+          <button class="btn btn-primary" id="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modalplus">
+               <i class="fa-regular fa-plus"></i>
+          </button>
+     </div>
+
+     <!-- Modal plus -->
+     <div class="modal fade" id="modalplus" tabindex="-1" aria-labelledby="modalplusLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+          <div class="modal-header">
+               <h1 class="modal-title fs-5" id="modalplusLabel"></h1>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+               <div class="containerrequerido">
+                    <div class="requeridotext">
+                         <p>Requerido</p>
+                    </div>
+
+                    <div class="title">
+                         <p>Titulo</p>
+                         <input type="text" placeholder="Nombre del libro">
+                    </div>
+
+                    <div class="inventario">
+                         <p>Inventario</p>
+                         <input type="number" placeholder="Cantidad disponible">
+                    </div>
+
+                    <div class="containeropcional">
+                         <div class="opcionaltext">
+                               <p>Opcional</p>
+                         </div> 
+      
+                         <div class="codigodebarras">
+                               <p>Código de barras</p>
+                               <input type="text" placeholder="EJ: 1234567">
+                         </div>
+      
+                         <div class="autor">
+                               <p>Autor</p>
+                               <input type="text">
+                         </div>
+      
+                         <div class="editorial">
+                               <p>Editorial</p>
+                               <input type="text">
+                         </div>
+      
+                         <div class="ISBN">
+                               <p>ISBN</p>
+                               <input type="text">
+                         </div>
+      
+                         <div class="year">
+                               <p>Año</p>
+                               <input type="number">
+                         </div>
+                     </div>
+               </div>
+
+             
+          </div>
+          <div class="modal-footer">
+               <button type="button" class="btn btn-primary" id="btn-save">Guardar</button>
+          </div>
+          </div>
+          </div>
+     </div>
+   
+</body>
+</html>

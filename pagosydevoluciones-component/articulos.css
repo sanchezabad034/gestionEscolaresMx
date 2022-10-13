@@ -1,0 +1,136 @@
+*{
+     padding: 0;
+     margin: 0;
+     overflow-x: hidden;
+   }
+   
+   .container_title h2{
+        font-size: 18px;
+        text-transform:uppercase; 
+        text-align: center;
+        margin: 2px solid #fff;
+        background-color: #fff;
+        height: 43px;
+        padding: 5px;
+       }
+    
+       .titles2{
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        margin: 2px solid #fff;
+        background-color: #fff;
+      }
+    
+      
+      .titles2 h1 {
+        font-size: 18px;
+      }
+      
+      .containerbuscador{
+          border: 1px solid #fff;
+          background-color: #fff;
+          height: 48px;
+          
+      }
+
+      #search{
+          width: 100%;
+          border: none;
+      }
+
+      .plusbtn{
+          padding-top: 170px;
+          padding-left: 1180px;
+         }
+
+     
+   #btn-plus{
+     width: 70px;
+     height: 70px;
+     border-radius: 100%;
+     background-color: #33cd5f;
+     border: #33cd5f;
+    }
+
+    .containerrequerido{
+     border: 1px solid #fff;
+     height: 203.7px;
+
+     box-shadow: 0px 1px 8px 1px rgba(227,227,227,0.75);
+     -webkit-box-shadow: 0px 1px 8px 1px rgba(227,227,227,0.75);
+     -moz-box-shadow: 0px 1px 8px 1px rgba(227,227,227,0.75);
+    }
+
+    .requeridotext p{
+     text-align: center;
+    }
+
+    .requeridotext{
+     height: 41px;
+     background-color: #f5f5f5;
+    }
+
+    .title{
+     height: 81.85px;
+    }
+
+    .title input{
+     width: 100%;
+     border-top:none;
+     border-left: none;
+     border-right: none;
+    }
+
+    .inventario{
+     height: 78px;
+    }
+
+    .inventario input{
+     width: 100%;
+     border: none;
+    }
+
+   .opcionaltext p{
+     height: 41px;
+     background-color: #f5f5f5;
+     text-align: center;
+   }
+
+   .codigodebarras input{
+     width: 100%;
+     border-top: none;
+     border-left: none;
+     border-right:none;
+   }
+   .autor input{
+     width: 100%;
+     border-top: none;
+     border-left: none;
+     border-right:none;
+   }
+   .editorial input{
+     width: 100%;
+     border-top: none;
+     border-left: none;
+     border-right:none;
+   }
+   .year input{
+     width: 100%;
+     border-top: none;
+     border-left: none;
+     border-right:none;
+   }
+
+   .ISBN input{
+     width: 100%;
+     border-top: none;
+     border-left: none;
+     border-right:none;
+   }
+
+   #btn-save{
+     width: 100%;
+     background-color: #33cd5f;
+     border-color:#33cd5f;
+   }

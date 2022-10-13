@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pagos">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./pagos-component.css">
+    <link rel="icon" href="https://web.escolaresmx.com/theme/img/icon.png">
+    <title>Pagos</title>
+    
+        <!--Angular-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <!--Bootrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+        <!--Font awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha512-3M00D/rn8n+2ZVXBO9Hib0GKNpkm8MSUU/e2VNthDyBYxKWG+BftNYYcuEjXlyrSO637tidzMBXfE7sQm0INUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://kit.fontawesome.com/d2cb8774a8.js" crossorigin="anonymous"></script>
+        <!--Component pagos-->
+        <script src="../pagos-component/pagos-component.js"></script>
+
+        <style>
+          body{
+            background-color: #f2f2f2;
+            overflow-x: hidden;
+          }
+        </style>
+</head>
+<body ng-controller="pagosController">
+          <div>
+               <div class="titles">
+               <h1>Pagos</h1>
+               </div>
+          </div>
+          <!--Buscador-->
+         <div class="containersearchbuttons"> 
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text icono" id="basic-addon1"><i class="fa -solid fa-search"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Buscar alumno" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+         
+          <!--Butones-->
+          <div class="buttons">
+               <button type="button" ng-click="reload()" class="btn btn-primary" id="btn-recargar"><i class="fa fa-light fa-arrows-rotate"></i> Recargar</button>
+              
+               <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalToggleLabel">Sesiones</h5>
+                          <button type="button" id = "sesiones" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                              <form>
+                                   <select ng-options="option.name for option in data_sesion.options track by option.id" ng-model="data_sesion.A_options" class="combobox">
+                                   <!-- Opciones del Combo -->
+                                   </select>
+                            </form>
+                            <table class="table table-bordered">
+                                   <thead>
+                                   <tr>
+                                   <th scope="col">ID</th>
+                                   <th scope="col">ESTATUS</th>
+                                   <th scope="col">FECHA</th>
+                                   <th scope="col">CORTE</th>
+                                   <th scope="col">FONDO</th>
+                                   <th scope="col">MONTO</th>
+                                   <th scope="col">TOTAL</th>
+                                   <th scope="col">DIFERENCIA</th>
+                                   <th scope="col">CAJERO (A)</th>
+                                   </tr>
+                                   </thead>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary" data-bs-target="#pagosnewsession" data-bs-toggle="modal" id="btn-sesion-modal">Nueva Sesión</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="pagosnewsession" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalToggleLabel2">Sesión</h5>
+                          <button type="button" class="btn-close" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Fecha</p>
+                          <div class="input-group mb-3">
+                              <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                          <p>Fondo de caja</p>
+                          <input type="number" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary" data-bs-target="exampleModalToggle" data-bs-toggle="modal" id="btn-modal-guardar">Guardar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="btn-sesiones"><i class="fa-solid fa-clock" ></i> Sesiones</a>  
+
+               <button type="button" class="btn btn-success" id="btn-report"><a href="./reporte.html"> <i class="fa-solid fa-chart-pie"></i> Reporte</a></button>
+
+               <div class="modal fade" id="exampleModalToggle_2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalToggleLabel" > Conceptos</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container-modal">
+                          <div class="titles-conceptos">
+                            <h4>Algebra</h4>
+                            <p>$50.00</p>
+                          </div>
+                          <div class="icon-conceptos">
+                           
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#conceptos" role="button" id="btn-nuevoconcepto"><i class="fa-solid fa-pen-to-square"></i></button>
+                      
+                        </div>
+                      </div>
+                        <hr>                     
+                    </div>
+
+                    <div class="modal-footer">
+                      <button class="btn btn-primary" data-bs-target="#exampleModalToggle23" data-bs-toggle="modal" data-bs-dismiss="modal" id="nuevo-conceptos">Nuevo</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="conceptos" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalToggleLabel_32">Conceptos</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <select ng-options="option.name for option in type.options track by option.id" ng-model="data_sesion.A_options" class="combobox">
+                          <!-- Opciones del Combo -->
+                          </select>
+                          <hr>
+                          <div class="row align-items-start">
+                            <div class="col"><p>Enlazar materia</p></div>
+                            <div class="col">
+                              <select ng-options="option.name for option in materias.options track by option.id" ng-model="materias.A_options" class="combobox">
+
+                              </select>
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="concept">
+                            <h5>Concepto</h5>
+                            <input type="text" class="input_concept" placeholder="Escribe una direccion del concepto" >
+                          </div>
+                          <hr>
+                          <div class="monto">
+                            <h5>Monto</h5>
+                            <input type="number" class="input_monto" placeholder="Escribe el monto del concepto">
+                          </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal" id="btn-save">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="exampleModalToggle23" aria-hidden="true" aria-labelledby="exampleModalToggleLabel23" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalToggleLabel23">Conceptos</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <select ng-options="option.name for option in type.options track by option.id" ng-model="data_sesion.A_options" class="combobox">
+                          <!-- Opciones del Combo -->
+                          </select>
+                          <hr>
+                          <div class="concept">
+                            <h5>Concepto</h5>
+                            <input type="text" class="input_concept" placeholder="Escribe una direccion del concepto">
+                          </div>
+                          <hr>
+                          <div class="monto">
+                            <h5>Monto</h5>
+                            <input type="number" class="input_monto" placeholder="Escribe el monto del concepto">
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary" data-bs-target="#exampleModalToggle_2" data-bs-toggle="modal" data-bs-dismiss="modal" id="btn-save">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle_2" role="button" id="btn-conceptos"><i class="fa-solid fa-folder"></i> Conceptos</a>
+                
+
+               <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalToggleLabel">Sesiones</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                              <form class="combo">
+                                   <select>
+                                   <!-- Opciones del Combo -->
+                                   </select>
+                            </form>
+                            <table class="table table-bordered" id="table_sesiones">
+                                   <thead>
+                                   <tr>
+                                   <th scope="col">ID</th>
+                                   <th scope="col">ESTATUS</th>
+                                   <th scope="col">FECHA</th>
+                                   <th scope="col">CORTE</th>
+                                   <th scope="col">FONDO</th>
+                                   <th scope="col">MONTO</th>
+                                   <th scope="col">TOTAL</th>
+                                   <th scope="col">DIFERENCIA</th>
+                                   <th scope="col">CAJERO (A)</th>
+                                   </tr>
+                                   </thead>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Nueva Sesión</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalToggleLabel2">Sesión</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Fecha</p>
+                          <div class="input-group mb-3">
+                              <input type="date" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                          </div>
+                          <p>Fondo de caja</p>
+                          <input type="number" class="form-control" placeholder="0" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Guardar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="btn-becas"><i class="fa-solid fa-star"></i> Becas</a>  
+          </div>
+        </div>
+        
+</body>
+</html>

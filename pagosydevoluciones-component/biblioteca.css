@@ -1,0 +1,333 @@
+*{
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container_title h2{
+     font-size: 18px;
+     text-transform:uppercase; 
+     text-align: center;
+     margin: 2px solid #fff;
+     background-color: #fff;
+     height: 43px;
+     padding: 5px;
+    }
+ 
+    .titles2{
+     text-align: center;
+     margin-top: 50px;
+     margin-bottom: 20px;
+     margin: 2px solid #fff;
+     background-color: #fff;
+   }
+ 
+   
+   .titles2 h1 {
+     font-size: 18px;
+   }
+   
+   .containerprincipaloptions{
+    margin: 1px solid #fff;
+    background-color: #fff;
+    height: 155px;
+    font-size: 18px;
+   }
+
+   .containerprincipaloptions a{
+    text-decoration: none;
+    color: #111;
+   }
+
+   .containerprincipaloptions a:hover{
+    color: #111;
+   }
+   .containersearch{
+    margin: 1px solid #fff;
+    background-color: #fff;
+    height: 163.3px;
+   }
+
+   .options{
+    height: 57px;
+   }
+
+   .elipsis{
+    text-align: right;
+    margin-right: 20px;
+   }
+
+   .iconmenu{
+    padding-left: 20px;
+    width: 40px;
+   }
+
+   .containerprestamos{
+    padding-left: 20px;
+   }
+   
+
+   #search{
+    width: 100%;
+    border: none;
+   }
+
+   .iconsearch{
+    padding-left: 14px;
+   }
+
+   #containerserachbuscador{
+    padding-top: 10px;
+   }
+
+   .close{
+    padding-top: 20px;
+    height: 76.6px;
+   }
+
+   .texts h2{
+    font-size: 18px;
+   }
+
+   .text span{
+    font-size:18px
+   }
+
+   .icon-close i{
+    font-size: 20px;
+    padding-left: 12px;
+   }
+
+   #btn-plus{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background-color: #33cd5f;
+    border: #33cd5f;
+   }
+
+   .plusbtn{
+    padding-top: 170px;
+    padding-left: 1180px;
+   }
+
+   .right-arrow-left{
+    text-align: right;
+    margin-right: 20px;
+   }
+
+   .container-text a{
+    text-decoration: none;
+    color: #111;
+
+   }
+
+   .container-text a:hover{
+    color: #111;
+   }
+
+   .container-text{
+    height: 56.6px;
+   }
+
+   .stickynote{
+    padding-left: 20px;
+    width: 40px;
+   }
+
+   .text-articulos{
+    padding-left:50px;
+    padding-top: -120px;
+   }
+
+   .date_clase{
+    width: 100%;
+    border: none;
+   }
+
+   .formato{
+    padding-top:10px;
+   }
+
+   .formato select{
+    width: 75%;
+    border: none;
+    background-color: #fff;
+   }
+
+   #btn-save{
+    width: 100%;
+    background-color: #33cd5f;
+    border: #33cd5f;
+   }
+
+   #body-options{
+    height: 350px;
+   }
+
+   #btn-delete{
+    width: 46%;
+    background-color: #fff;
+    border: #fff;
+    color: #111;
+   }
+
+   #btn-save-modal{
+    width: 48%;
+    padding-right: 40px;
+    background-color: #33cd5f;
+    border: none;
+    color: white;
+   }
+
+   #modal-footer-down{
+    background-color: #33cd5f;
+   }
+
+   #modal-footer-down{
+    align-items: center;
+   }
+
+   .inputtext{
+    width: 100%;
+    border: none;
+   }
+
+   #combomodal{
+    width: 75%;
+    background-color: #fff;
+    border: none;
+   }
+
+   .container_optionsmodal{
+    width: 99%;
+    height: 270px;
+    margin: 5px solid #fff;
+    background-color: #fff;
+
+    /*box shadow*/
+    box-shadow: 4px -1px 27px -7px rgba(179,179,179,0.75);
+    -webkit-box-shadow: 4px -1px 27px -7px rgba(179,179,179,0.75);
+    -moz-box-shadow: 4px -1px 27px -7px rgba(179,179,179,0.75);
+   }
+
+   .title_text{
+    border: 1px solid #f5f5f5; 
+    background-color: #f5f5f5;
+    height: 41px;
+   }
+
+   .title_text span{
+    text-align: center;
+    text-transform: uppercase;
+   }
+
+   
+   .containerdate{
+    width: 99%;
+    margin: 5px solid #fff;
+    background-color: #fff;
+
+    /*box shadow*/
+    box-shadow: 4px -1px 27px -7px rgba(179,179,179,0.75);
+    -webkit-box-shadow: 4px -1px 27px -7px rgba(179,179,179,0.75);
+    -moz-box-shadow: 4px -1px 27px -7px rgba(179,179,179,0.75);
+   }
+
+   .date-input{
+    width: 100%;
+    border: none;
+   }
+
+    /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} 
+
+.options-modal a{
+  text-decoration: none;
+  color: #111;
+}
+
+.options-modal a:hover{
+  color: #111;
+}
+
+#plusarticulosbody{
+  height: 380px;
+}
+
+.containericon{
+  height: 74.6px;
+}
+
+.containermenuarticulos a{
+  text-decoration: none;
+  color: #111;
+}
+
+.containermenuarticulos a:hover{
+  color: #111;
+}
+
+#modaloptionsalumnos{
+  height: 338px;
+}
