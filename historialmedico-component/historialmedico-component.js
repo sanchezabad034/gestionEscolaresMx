@@ -244,5 +244,12 @@ historial.controller('historialController', function($scope){
         ],
         A_options:{id:'1', name:'No'},
         };
+
+    $scope.tablenames=[
+        {id:'1', name:'LOPEZ DIAZ LILITH', typeblood: 'A+', epilepsia:'FALSE', alergias:'TRUE', sobrepeso:'FALSE'},
+        {id:'2', name:'BERUMEN RAMIREZ DAVID VICTOR', typeblood: 'O+', epilepsia:'FALSE', alergias:'FALSE', sobrepeso:'NOMAS POQUITO U.U'}, 
+        {id:'3', name:'MORENO RODRIGUEZ CRISTHIAN CHANTAL', typeblood: 'O+', epilepsia:'FALSE', alergias:'FALSE', sobrepeso:'FALSE'},
+        {id:'4', name:'SCHIETEKAT CASTELLANOS CESAR ALBERTO ', typeblood: 'O+', epilepsia:'FALSE', alergias:'TRUE', sobrepeso:'nomas poquita'}
+    ]
 });
 

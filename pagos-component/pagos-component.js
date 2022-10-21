@@ -22,6 +22,26 @@ pagos.controller('pagosController', function($scope){
          A_options:{id:'1', name:'Sesion                               --SELECCIONA UNA SESION--'}
      };
 
+    $scope.concept={
+        options:[
+            {id:'1', name:'--Selecciona un concepto'},
+            {id:'2', name:'ALGEBRA'}, 
+            {id:'3', name:'ARQUITECTURA DE SOFTWARE'}, 
+            {id:'4', name:'BASE DE DATOS'}, 
+            {id:'5', name:'CONSTANCIA DE ESTUDIOS'},
+            {id:'6', name:'CREDENCIAL CBTIS110 PRIMERA VEZ'},
+            {id:'7', name:'CREDENCIAL CBTIS130'},
+            {id:'8', name:'CREDENCIAL ESCOLAR 2019'},
+            {id:'9', name:'CREDENCIAL2019'},
+            {id:'10', name:'DISEÑO DE BASES DE DATOS'},
+            {id:'11', name:'INGENERIA DE SOFTWARE'},
+            {id:'12', name:'INSCRIPCIÓN'},
+            {id:'13', name:'MATEMATICAS'},
+            {id:'14', name:'PRUEBAS DE SISTEMAS TECNOLOGICOS DE COMUNICACIÓN'},
+            {id:'15', name:'TOPICOS SELECTOS DE SOFTWARE'}
+        ],
+        A_options:{id:'1', name:'--Selecciona un concepto'}
+    }
     $scope.type={
      options:[
           {id: '1', name:'--SELECCIONA EL TIPO--'},
@@ -32,26 +52,38 @@ pagos.controller('pagosController', function($scope){
      A_options:{id:'1', name:'--SELECCIONA EL TIPO--'}
     }
 
+    $scope.methodspage={
+        options:[
+             {id: '1', name:'Efectivo'},
+             {id:'2', name:'Tarjeta'}, 
+             {id:'3', name:'Tarjeta de debito'}, 
+             {id:'4', name:'Tarjeta de credito'},
+             {id:'5', name:'Cheque'},
+             {id:'6', name:'Transferencia'} 
+        ],
+        
+       }
+
     $scope.students = [
-     { id: '1', name: '', lastname: '', monto: "$1,015.00", adeudo: "-$5.00", pagos_agrupados:'#14', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
-     { id: '2', name: 'JUAN', lastname: 'AMADOR MIRANDA', monto: "$400.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh05/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1539326490/escolares/escuelas/2/alumnos/y7m6wfcvq3yuv1ndmn0t.jpg' },
-     { id: '3', name: 'LILITH', lastname: 'LOPEZ DIAZ', monto: "$7,200.00", adeudo: "1,000.00", pagos_agrupados:'#19', photo: 'https://res.cloudinary.com/cdn-dh13/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1626717200/escolares/escuelas/9/alumnos/y7kvgwvt7gvkjjuwqwse.png' },
-     { id: '4', name: 'DAVID', lastname: 'BERUMEN RAMIREZ', monto: "$127,487.00", adeudo: "-$74,021.50", pagos_agrupados:'#49', photo: 'https://res.cloudinary.com/cdn-dh14/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1645716203/escolares/escuelas/9/alumnos/lxa7obvj45bprisg1tmu.png' },
-     { id: '5', name: 'ALICIA', lastname: 'ZAPATA BRAVO', monto: "$800.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh02/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1565040558/escolares/escuelas/9/alumnos/lmk6mucpq2n12k8jke8c.jpg' },
-     { id: '6', name: 'GUSTAVO', lastname: 'GARCIA ZARAGOZA', monto: "$775.00", adeudo: "$45.00", pagos_agrupados:'#9', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
-     { id: '7', name: 'ERIKA', lastname: 'MATURINO ZAVALA', monto: "$895.00", adeudo: "$0.00", pagos_agrupados:'#4', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
-     { id: '8', name: 'MILDRED', lastname: 'GARCIA SOSA', monto: "$400.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh04/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1567607094/escolares/escuelas/9/alumnos/oqgy1nmrj6gigr1lidrh.jpg' },
-     { id: '9', name: 'OCTAVIO', lastname: 'SINATRA GUADIAN', monto: "$135.00", adeudo: "$0.00", pagos_agrupados:'#3', photo: 'https BRAVO', monto: "$0.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh05/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1568236364/escolares/escuelas/9/alumnos/p11cdx8iemi3yj5sgvzk.jpg' },
-     { id: '11', name: 'DAVID', lastname: 'BAUTISTA EBRARD', monto: "$400.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh02/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1565039869/escolares/escuelas/9/alumnos/k0tktegu5hyi8gfndafw.jpg' },
-     { id: '12', name: 'MORTY', lastname: 'MARTINEZ RAMIREZ', monto: "$400.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh02/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1567607285/escolares/escuelas/9/alumnos/tzpuzwejxpvnszgnziee.jpg' },
-     { id: '13', name: 'JUAN', lastname: 'CORONADO GUZMAN', monto: "$45.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: '' },
-     { id: '14', name: 'OCTAVIO', lastname: 'FLORES GUZMAN', monto: "$180.00", adeudo: "$135.00", pagos_agrupados:'#4', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
-     { id: '15', name: 'JUAN', lastname: 'MIRANDA AMADOR', monto: "$470.00", adeudo: "$45.00", pagos_agrupados:'#10', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
-     { id: '16', name: 'DAVID', lastname: 'RAMIREZ ZARAGOZA', monto: "$50.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
-     { id: '17', name: 'BLANCA', lastname: 'AVILA VILLA', monto: "$420.00", adeudo: "$420.00", pagos_agrupados:'#9', photo: 'https://res.cloudinary.com/cdn-dh03/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1539706570/escolares/escuelas/3283/alumnos/x6svbknclx52gsldiimw.jpg' },
-     { id: '18', name: 'ALBERTO', lastname: 'ARELLANO LOPEZ', monto: "$6,650.00", adeudo: "$0.00", pagos_agrupados:'#12', photo: 'https://res.cloudinary.com/cdn-dh02/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1573683813/escolares/escuelas/9/alumnos/dzruf7ltiesxp0xen6r4.jpg' },
-     { id: '19', name: 'PATRICIA NORMA', lastname: 'DE LOS REYES', monto: "$60.00", adeudo: "$10.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
-     { id: '20', name: 'ANTONIO', lastname: 'AMADOR MIRANDA', monto: "$405.00", adeudo: "$270.00", pagos_agrupados:'#9', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
+     { id: '1', name: '', lastname: '',view:'invisible', monto: "$1,015.00", adeudo: "-$5.00", pagos_agrupados:'#14', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
+     { id: '2', name: 'JUAN', view:'invisible',lastname: 'AMADOR MIRANDA', monto: "$400.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh05/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1539326490/escolares/escuelas/2/alumnos/y7m6wfcvq3yuv1ndmn0t.jpg' },
+     { id: '3', name: 'LILITH',view:'invisible', lastname: 'LOPEZ DIAZ', monto: "$7,200.00", adeudo: "1,000.00", pagos_agrupados:'#19', photo: 'https://res.cloudinary.com/cdn-dh13/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1626717200/escolares/escuelas/9/alumnos/y7kvgwvt7gvkjjuwqwse.png' },
+     { id: '4', name: 'DAVID',view:'invisible', lastname: 'BERUMEN RAMIREZ', monto: "$127,487.00", adeudo: "-$74,021.50", pagos_agrupados:'#49', photo: 'https://res.cloudinary.com/cdn-dh14/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1645716203/escolares/escuelas/9/alumnos/lxa7obvj45bprisg1tmu.png' },
+     { id: '5', name: 'ALICIA',view:'invisible', lastname: 'ZAPATA BRAVO', monto: "$800.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh02/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1565040558/escolares/escuelas/9/alumnos/lmk6mucpq2n12k8jke8c.jpg' },
+     { id: '6', name: 'GUSTAVO',view:'invisible', lastname: 'GARCIA ZARAGOZA', monto: "$775.00", adeudo: "$45.00", pagos_agrupados:'#9', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
+     { id: '7', name: 'ERIKA', view:'invisible',lastname: 'MATURINO ZAVALA', monto: "$895.00", adeudo: "$0.00", pagos_agrupados:'#4', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
+     { id: '8', name: 'MILDRED',view:'invisible', lastname: 'GARCIA SOSA', monto: "$400.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh04/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1567607094/escolares/escuelas/9/alumnos/oqgy1nmrj6gigr1lidrh.jpg' },
+     { id: '9', name: 'OCTAVIO',view:'invisible', lastname: 'SINATRA GUADIAN', monto: "$135.00", adeudo: "$0.00", pagos_agrupados:'#3', photo: 'https BRAVO', monto: "$0.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh05/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1568236364/escolares/escuelas/9/alumnos/p11cdx8iemi3yj5sgvzk.jpg' },
+     { id: '11', name: 'DAVID',view:'invisible', lastname: 'BAUTISTA EBRARD', monto: "$400.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh02/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1565039869/escolares/escuelas/9/alumnos/k0tktegu5hyi8gfndafw.jpg' },
+     { id: '12', name: 'MORTY',view:'invisible', lastname: 'MARTINEZ RAMIREZ', monto: "$400.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh02/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1567607285/escolares/escuelas/9/alumnos/tzpuzwejxpvnszgnziee.jpg' },
+     { id: '13', name: 'JUAN',view:'invisible', lastname: 'CORONADO GUZMAN', monto: "$45.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: '' },
+     { id: '14', name: 'OCTAVIO',view:'invisible', lastname: 'FLORES GUZMAN', monto: "$180.00", adeudo: "$135.00", pagos_agrupados:'#4', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
+     { id: '15', name: 'JUAN', view:'invisible',lastname: 'MIRANDA AMADOR', monto: "$470.00", adeudo: "$45.00", pagos_agrupados:'#10', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
+     { id: '16', name: 'DAVID',view:'invisible', lastname: 'RAMIREZ ZARAGOZA', monto: "$50.00", adeudo: "$0.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
+     { id: '17', name: 'BLANCA', view:'invisible',lastname: 'AVILA VILLA', monto: "$420.00", adeudo: "$420.00", pagos_agrupados:'#9', photo: 'https://res.cloudinary.com/cdn-dh03/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1539706570/escolares/escuelas/3283/alumnos/x6svbknclx52gsldiimw.jpg' },
+     { id: '18', name: 'ALBERTO',view:'invisible', lastname: 'ARELLANO LOPEZ', monto: "$6,650.00", adeudo: "$0.00", pagos_agrupados:'#12', photo: 'https://res.cloudinary.com/cdn-dh02/image/upload/c_thumb,h_256,q_auto,w_256,g_face,r_max,z_0.1/v1573683813/escolares/escuelas/9/alumnos/dzruf7ltiesxp0xen6r4.jpg' },
+     { id: '19', name: 'PATRICIA NORMA',view:'invisible', lastname: 'DE LOS REYES', monto: "$60.00", adeudo: "$10.00", pagos_agrupados:'#1', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
+     { id: '20', name: 'ANTONIO',view:'invisible', lastname: 'AMADOR MIRANDA', monto: "$405.00", adeudo: "$270.00", pagos_agrupados:'#9', photo: 'https://res.cloudinary.com/cdn-dh15/image/upload/v1657740320/web/sitios/17/sliders/g4blqheytzqpxjqhstpy.png' },
      ]
 
      $scope.reload = function(){
@@ -181,4 +213,74 @@ pagos.controller('pagosController', function($scope){
      ],
      A_options:{id:'1', name:'--SELECCIONA UNA MATERIA--'}
      }
+
+     $scope.ChangeView = function(id) {
+          for (let i = 0; i < $scope.students.length; i++) {
+              $scope.students[id].view = 'visible';
+              if ($scope.students[i].id != (id + 1)) {
+                  $scope.students[i].view = 'invisible';
+              }
+          }
+      }
+
+      $scope.pagos = [
+          { id: '1', concepto:'Entrada',date: '2020-07-31', number:'224',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '2', concepto:'Entrada',date: '2020-07-31', number:'223',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '3', concepto:'Entrada',date: '2020-07-31', number:'222',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '4', concepto:'Entrada',date: '2020-07-31', number:'221',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '5', concepto:'Entrada',date: '2020-07-31', number:'220',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '6', concepto:'Entrada',date: '2020-07-31', number:'219',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '7', concepto:'Entrada',date: '2020-07-31', number:'218',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '8', concepto:'Entrada',date: '2020-07-31', number:'217',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '9', concepto:'Entrada',date: '2020-07-31', number:'216',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '10',concepto:'Entrada', date: '2020-07-28', number:'215',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '11',concepto:'Entrada', date: '2020-07-08', number:'214',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '12',concepto:'Entrada', date: '2020-07-08', number:'213',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '13',concepto:'Entrada', date: '2020-07-08', number:'212',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '14',concepto:'Entrada', date: '2020-07-08', number:'211',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '15',concepto:'Entrada', date: '2020-07-08', number:'210',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '16',concepto:'Entrada', date: '2020-07-08', number:'209',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '17',concepto:'Entrada', date: '2020-07-08', number:'208',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '18',concepto:'Entrada', date: '2020-07-08', number:'207',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '19',concepto:'Entrada', date: '2020-07-08', number:'206',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '20',concepto:'Entrada', date: '2020-07-08', number:'205',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '21',concepto:'Entrada', date: '2020-07-08', number:'204',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '22',concepto:'Entrada', date: '2020-07-08', number:'203',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '23',concepto:'Entrada', date: '2020-07-08', number:'202',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '24',concepto:'Entrada', date: '2020-07-08', number:'201',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '25',concepto:'Entrada', date: '2020-07-08', number:'200',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '26',concepto:'Entrada', date: '2020-07-08', number:'199',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '27',concepto:'Entrada', date: '2020-07-08', number:'198',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '28',concepto:'Entrada', date: '2020-07-08', number:'197',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '29',concepto:'Entrada', date: '2020-07-08', number:'196',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '30',concepto:'Entrada', date: '2020-07-08', number:'195',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '31',concepto:'Entrada', date: '2020-07-08', number:'194',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '32',concepto:'Entrada', date: '2020-07-08', number:'193',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '33',concepto:'Entrada', date: '2020-07-08', number:'192',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '34',concepto:'Entrada', date: '2020-07-08', number:'191',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '35',concepto:'Entrada', date: '2020-07-08', number:'190',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '36',concepto:'Entrada', date: '2020-07-08', number:'189',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '37',concepto:'Entrada', date: '2020-07-07', number:'188',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '38',concepto:'Entrada', date: '2020-07-07', number:'187',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '39',concepto:'Entrada', date: '2020-07-07', number:'186',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '40',concepto:'Entrada', date: '2020-07-07', number:'185',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '41',concepto:'Credencial CBTIS130', date: '2020-02-05', number:'173',cantidad:'$45',adeudo:'$0', id_student:'1'},
+          { id: '42',concepto:'Credencial CBTIS110', date: '2020-02-05', number:'172',cantidad:'$60',adeudo:'$0', id_student:'1'},
+          { id: '43',concepto:'', date: '2020-02-05', number:'171',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '44',concepto:'', date: '2020-02-05', number:'170',cantidad:'$45',adeudo:'$45', id_student:'1'},
+          { id: '45',concepto:'Credencial CBTIS110', date: '2020-02-05', number:'169',cantidad:'$60',adeudo:'$0', id_student:'1'},
+          { id: '46',concepto:'Credencial ESCOLARES 2019', date: '2020-02-05', number:'168',cantidad:'$45',adeudo:'$0', id_student:'1'},
+          { id: '47',concepto:'Credencial 2019', date: '2020-02-05', number:'168',cantidad:'$45',adeudo:'$0', id_student:'1'},
+          { id: '48',concepto:'Credencial CBTIS 130', date: '2020-02-05', number:'168',cantidad:'$45',adeudo:'$0', id_student:'1'},
+          { id: '49',concepto:'Ingeneria de software', date: '2020-02-06', number:'175',cantidad:'$400',adeudo:'$0', id_student:'2'},
+          { id: '50',concepto:'Inscripcion', date: '2019-05-23', number:'6',cantidad:'$1,300',adeudo:'$0', id_student:'3'},
+          { id: '51',concepto:'Credencial', date: '2019-10-11', number:'16',cantidad:'$35',adeudo:'$0', id_student:'3'},
+          { id: '52',concepto:'Algebra', date: '2019-10-11', number:'22',cantidad:'$50',adeudo:'$0', id_student:'3'},
+          { id: '53',concepto:'Credencial', date: '2019-10-11', number:'16',cantidad:'$35',adeudo:'$0', id_student:'3'},
+          { id: '54',concepto:'Algebra', date: '2019-10-11', number:'24',cantidad:'$40',adeudo:'$0', id_student:'3'},
+          { id: '55',concepto:'Topicos selectos de software', date: '2019-05-27', number:'12',cantidad:'$800',adeudo:'$260', id_student:'4'},
+          { id: '56',concepto:'Topicos selectos de software', date: '2019-05-23', number:'8',cantidad:'$800',adeudo:'$260', id_student:'5'},
+          
+          ]
+
 }); 

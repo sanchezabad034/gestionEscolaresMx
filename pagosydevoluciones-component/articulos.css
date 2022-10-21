@@ -39,9 +39,24 @@
           border: none;
       }
 
+      #search:focus{
+        outline:0; 
+      }
+
+      .table_a a{
+        text-decoration: none;
+        color: #111;
+      }
+
+      .table_a a:hover{
+        text-decoration: none;
+        color: #111;
+      }
+
       .plusbtn{
-          padding-top: 170px;
+          padding-top: 7px;
           padding-left: 1180px;
+          
          }
 
      

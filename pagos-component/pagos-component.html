@@ -39,7 +39,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text icono" id="basic-addon1"><i class="fa -solid fa-search"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Buscar alumno" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="serachinput" placeholder="Buscar alumno" aria-label="Username" aria-describedby="basic-addon1">
           </div>
          
           <!--Butones-->
@@ -59,21 +59,25 @@
                                    <!-- Opciones del Combo -->
                                    </select>
                             </form>
-                            <table class="table table-bordered">
-                                   <thead>
-                                   <tr>
-                                   <th scope="col">ID</th>
-                                   <th scope="col">ESTATUS</th>
-                                   <th scope="col">FECHA</th>
-                                   <th scope="col">CORTE</th>
-                                   <th scope="col">FONDO</th>
-                                   <th scope="col">MONTO</th>
-                                   <th scope="col">TOTAL</th>
-                                   <th scope="col">DIFERENCIA</th>
-                                   <th scope="col">CAJERO (A)</th>
-                                   </tr>
-                                   </thead>
-                            </table>
+                            <div class="containertable">
+                              <div class="table-responsive">
+                                <table class="table table-bordered">
+                                      <thead>
+                                      <tr>
+                                      <th scope="col">ID</th>
+                                      <th scope="col">ESTATUS</th>
+                                      <th scope="col">FECHA</th>
+                                      <th scope="col">CORTE</th>
+                                      <th scope="col">FONDO</th>
+                                      <th scope="col">MONTO</th>
+                                      <th scope="col">TOTAL</th>
+                                      <th scope="col">DIFERENCIA</th>
+                                      <th scope="col">CAJERO (A)</th>
+                                      </tr>
+                                      </thead>
+                                </table>
+                              </div>
+                          </div>
                         </div>
                         <div class="modal-footer">
                           <button class="btn btn-primary" data-bs-target="#pagosnewsession" data-bs-toggle="modal" id="btn-sesion-modal">Nueva Sesión</button>
@@ -121,9 +125,9 @@
                             <p>$50.00</p>
                           </div>
                           <div class="icon-conceptos">
-                           
+                          
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#conceptos" role="button" id="btn-nuevoconcepto"><i class="fa-solid fa-pen-to-square"></i></button>
-                      
+                        <hr>
                         </div>
                       </div>
                         <hr>                     

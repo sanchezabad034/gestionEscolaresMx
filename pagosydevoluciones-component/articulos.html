@@ -34,34 +34,72 @@
      </div>
      <div class="containerbuscador">
           <div class="row" id="containerserachbuscador">
-               <div class="col col-sm-1 " >
+               <div class="col col-sm-1 d-flex justify-content-center" >
                     <div class="iconsearch">
                          <i class="fa -solid fa-magnifying-glass"></i>
                     </div>
                </div>
-               <div class="col-8">
-                    <input type="search" placeholder="Busca por nombre o codigo de barras" id="search">
+               <div class="col-5">
+                    <input type="search" ng-model="search_table" placeholder="Busca por nombre o codigo de barras" id="search">
                </div>
           </div>
      </div>
-
+     <br>
      <!--Tabla -->
-     <table class="table table-sm">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">BARCODE</th>
-              <th scope="col">TITULO</th>
-              <th scope="col">AUTOR</th>
-              <th scope="col">EDITORIAL</th>
-              <th scope="col">ISBN</th>
-              <th scope="col">INVENTARIO</th>
-            </tr>
-          </thead>
-          <tbody >
-            
-          </tbody>
-     </table>
+     <div class="table-responsive table-bordered" style="background-color: #fff;">          
+          <table class="table table-sm" class="table_a">
+               <thead>
+               <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">BARCODE</th>
+                    <th scope="col">TITULO</th>
+                    <th scope="col">AUTOR</th>
+                    <th scope="col">EDITORIAL</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">INVENTARIO</th>
+               </tr>
+               </thead>
+               <tbody ng-repeat="table in tablearticulos | filter:search_table" >
+                    <tr >
+                              <td >
+                                   <div class="table_a">
+                                   <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.id}}</a>
+                                   </div>
+                              </td>
+                              <td>
+                                   <div class="table_a">
+                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.barcode}}</a>
+                                   </div>
+                              </td>
+                              <td>
+                                   <div class="table_a">
+                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.title}}</a>
+                                   </div>
+                              </td>
+                              <td>
+                                   <div class="table_a">
+                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.autor}}</a>
+                                   </div>
+                              </td>
+                              <td>
+                                   <div class="table_a">
+                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.editorial}}</a>
+                                   </div>
+                              </td>
+                              <td>
+                                   <div class="table_a">
+                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.ISBN}}</a>
+                                   </div>
+                              </td>
+                              <td>
+                                   <div class="table_a">
+                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.inventario}}</a>
+                                   </div>
+                              </td>
+                    </tr>
+               </tbody>
+          </table>
+     </div>
 
      <div class="plusbtn">
           <button class="btn btn-primary" id="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modalplus">

@@ -45,9 +45,15 @@
    .containersearch{
     margin: 1px solid #fff;
     background-color: #fff;
-    height: 163.3px;
+    
    }
 
+   #search{
+    border: none;
+   }
+   #search:focus{
+    outline: 0;
+  }
    .options{
     height: 57px;
    }
@@ -82,7 +88,7 @@
 
    .close{
     padding-top: 20px;
-    height: 76.6px;
+    height: 74.6%;
    }
 
    .texts h2{
@@ -316,7 +322,11 @@ input:checked + .slider:before {
 }
 
 .containericon{
-  height: 74.6px;
+  height: 84.6px;
+}
+
+.containericon-2{
+  height: 120px;
 }
 
 .containermenuarticulos a{
@@ -330,4 +340,43 @@ input:checked + .slider:before {
 
 #modaloptionsalumnos{
   height: 338px;
+}
+
+
+.image img{
+  width: 40px;
+  height: 40px;
+}
+
+.containerstudentspage{
+  height: 150.4px;
+}
+
+.students a{
+  text-decoration: none;
+  color: #111;
+}
+.students a:hover{
+  text-decoration: none;
+  color: #111;
+}
+
+.containerstudentsmodal a{
+  color: #111;
+  text-decoration: none;
+}
+
+.containerstudentsmodal a:hover{
+  color: #111;
+  text-decoration: none;
+}
+
+.containerstudentsmodal{
+  font-size: 18px;
+}
+
+#containerarticulos a{
+  text-decoration: none;
+  color: #111;
+  font-size: 18px;
 }

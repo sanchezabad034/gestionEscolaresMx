@@ -66,10 +66,8 @@
 
           var options = {
           title : 'Enfermedades de la comunidad estudiantil FEBRERO - JULIO 2022',
-          vAxis: {title: 'Datos'},
-          hAxis: {title: 'Problemas'},
           seriesType: 'bars',
-          series: {5: {type: ''}}
+          
           };
 
           var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
@@ -169,8 +167,7 @@
     </div>
 
     <div class="container-graphics">
-      <div id="chart_div" style="width: 900px; height: 609px;"
-        class="justify-content-center"></div>
+      <div id="chart_div" style="width: 994px; height:600px;" ></div>
       <div id="chart_tallas" style="width: 309px; height: 261px;"></div>
 
     </div>
@@ -181,69 +178,33 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1"><i class="fa -solid fa-search"></i></span>
         </div>
-        <input type="text" class="form-control" placeholder="Escribe un nombre y pulsa ENTER para buscar" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="Escribe un nombre y pulsa ENTER para buscar" aria-label="Username" aria-describedby="basic-addon1" ng-init="tablename = ''" ng-model="tablename">
       </div>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">NO.</th>
-            <th scope="col">ALUMNO</th>
-            <th scope="col">TIPO DE SANGRE</th>
-            <th scope="col">EPILEPSIA</th>
-            <th scope="col">ALERGIAS</th>
-            <th scope="col">SOBREPESO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-
-            <th scope="row">1</th>
-            <td> <button type="button" class="btn btn-primary"
-                data-bs-toggle="modal" data-bs-target="#exampleModal1"
-                data-bs-whatever="@mdo" id="btn-modal-lopez">LOPEZ DIAZ LILITH</button></td>
-            <td>A+</td>
-            <td>FALSE</td>
-            <td>TRUE</td>
-            <td>FALSE</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td><button type="button" class="btn btn-primary"
-                data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                data-bs-whatever="@mdo" id="btn-modal-lopez">BERUMEN RAMIREZ
-                DAVID VICTOR</button></td>
-            <td>0+</td>
-            <td>FALSE</td>
-            <td>FALSE</td>
-            <td>NOMAS POQUITO U.U</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td><button type="button" class="btn btn-primary"
-                data-bs-toggle="modal" data-bs-target="#exampleModal3"
-                data-bs-whatever="@mdo" id="btn-modal-lopez">MORENO RODRIGUEZ
-                CRISTHIAN CHANTAL</button>
-            </td>
-            <td>0+</td>
-            <td>FALSE</td>
-            <td>FALSE</td>
-            <td>FALSE</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td><button type="button" class="btn btn-primary"
-                data-bs-toggle="modal" data-bs-target="#exampleModal4"
-                data-bs-whatever="@mdo" id="btn-modal-lopez">SCHIETEKAT
-                CASTELLOS CESAR ALBERTO</button>
-            </td>
-            <td>0+</td>
-            <td>FALSE</td>
-            <td>FALSE</td>
-            <td>nomas poquito</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">NO.</th>
+              <th scope="col">ALUMNO</th>
+              <th scope="col">TIPO DE SANGRE</th>
+              <th scope="col">EPILEPSIA</th>
+              <th scope="col">ALERGIAS</th>
+              <th scope="col">SOBREPESO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="table in tablenames | filter: tablename">
+                <th scope="row">{{table.id}}</th>
+                <td><a data-bs-toggle="modal" href="#exampleModal1" role="button">{{table.name}}</a></td>
+                <td style="color:red;">{{table.typeblood}}</td>
+                <td>{{table.epilepsia}}</td>
+                <td>{{table.alergias}}</td>
+                <td>{{table.sobrepeso}}</td>
+            </tr>
+          
+          </tbody>
+        </table>
+    </div>
       <!-- ventanas modales -->
       <div class="modal fade" id="exampleModal1" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -255,10 +216,6 @@
                 aria-label="Close"></button>
             </div>
             <div class="modal-body" id="modal-body1">
-              <div class="title-modal">
-                <h2>LOPEZ DIAZ LILITH</h2>
-              </div>
-              <hr>
               <div class="container-options">
                 <i class="fa -regular fa-gear" id="settings-modal"></i>
                 <div class="descriptions">
@@ -290,139 +247,7 @@
         </div>
       </div>
 
-      <!-- ventanas modales -->
-      <div class="modal fade" id="exampleModal2" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" id="modal-dialog1">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Opciones del alumno</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="modal-body1">
-              <div class="title-modal">
-                <h2>BERUMEN RAMIREZ DAVID VICTOR</h2>
-              </div>
-              <hr>
-              <div class="container-options">
-                <i class="fa -regular fa-gear" id="settings-modal"></i>
-                <div class="descriptions">
-                  <button type="button" class="btn btn-primary"
-                    data-bs-toggle="modal" data-bs-target="#settings-historial"
-                    data-bs-whatever="@mdo" id="setting-historial">
-                    <h6>Modificar historial médico</h6>
-                    <p>Tutor(es), Seguro, institución médica</p>
-                  </button>
-                </div>
-                <hr>
-                <i class="fa -regular fa-circle-info" id="settings-modal"></i>
-                <div class="descriptions">
-                  <button type="button" class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#historial-enfermedades"
-                    data-bs-whatever="@mdo" id="setting-historial">
-                    <h6>Modificar historial de enfermedades</h6>
-                    <p>Información médica</p>
-                  </button>
-                </div>
-                <hr>
-              </div>
-            </div>
-            <div class="modal-footer">
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ventanas modales -->
-      <div class="modal fade" id="exampleModal3" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" id="modal-dialog1">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Opciones del alumno</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="modal-body1">
-              <div class="title-modal">
-                <h2>MORENO RODRIGUEZ CRISTHIAN CHANTAL</h2>
-              </div>
-              <hr>
-              <div class="container-options">
-                <i class="fa -regular fa-gear" id="settings-modal"></i>
-                <button type="button" class="btn btn-primary"
-                  data-bs-toggle="modal" data-bs-target="#settings-historial"
-                  data-bs-whatever="@mdo" id="setting-historial">
-                  <h6>Modificar historial médico</h6>
-                  <p>Tutor(es), Seguro, institución médica</p>
-                </button>
-                <hr>
-                <i class="fa -regular fa-circle-info" id="settings-modal"></i>
-                <div class="descriptions">
-                  <button type="button" class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#historial-enfermedades"
-                    data-bs-whatever="@mdo" id="setting-historial">
-                    <h6>Modificar historial de enfermedades</h6>
-                    <p>Información médica</p>
-                  </button>
-                </div>
-                <hr>
-              </div>
-            </div>
-            <div class="modal-footer">
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ventanas modales -->
-      <div class="modal fade" id="exampleModal4" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" id="modal-dialog1">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Opciones del alumno</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="modal-body1">
-              <div class="title-modal">
-                <h2>SCHIETEKAT CASTELLOS CESAR ALBERTO</h2>
-              </div>
-              <hr>
-              <div class="container-options">
-                <i class="fa -regular fa-gear" id="settings-modal"></i>
-                <button type="button" class="btn btn-primary"
-                  data-bs-toggle="modal" data-bs-target="#settings-historial"
-                  data-bs-whatever="@mdo" id="setting-historial">
-                  <h6>Modificar historial médico</h6>
-                  <p>Tutor(es), Seguro, institución médica</p>
-                </button>
-                <hr>
-                <i class="fa -regular fa-circle-info" id="settings-modal"></i>
-                <div class="descriptions">
-                  <button type="button" class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#historial-enfermedades"
-                    data-bs-whatever="@mdo" id="setting-historial">
-                    <h6>Modificar historial de enfermedades</h6>
-                    <p>Información médica</p>
-                  </button>
-                </div>
-                <hr>
-              </div>
-            </div>
-            <div class="modal-footer">
-
-            </div>
-          </div>
-        </div>
-      </div>
+    
       <!--Modal settings-->
       <div class="modal fade" id="settings-historial" tabindex="-1"
         aria-labelledby="settings-historial" aria-hidden="true">
