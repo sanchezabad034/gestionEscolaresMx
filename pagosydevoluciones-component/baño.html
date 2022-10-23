@@ -34,473 +34,480 @@
                <h2 >Baño 2</h2>
           </div>
      </div>
-
-     <div class="row row-top responsive-grid-break responsive-sm">
-          <div class="col-6">
-               <div class="containerprincipaloptions">
-                    <a  class="options" data-bs-toggle="modal" href="#articulos" role="button">
-                         <div class="row py-3 d-flex flex-row">
-                              <div class="col col-1 d-flex justify-content-start">
-                                   <div class="iconmenu">
-                                        <i class="fa -regular fa-bars"></i>
+     <div class="row">
+          <div class="col-sm-6">
+          <div class="card">
+          <div class="card-body">
+                         <div class="containerprincipaloptions">
+                              <a  class="options" data-bs-toggle="modal" href="#articulos" role="button">
+                                   <div class="row containeroptions  display-flex">
+                                        <div class="col col-sm-2 d-flex justify-content-start">
+                                             <div class="iconmenu">
+                                                  <i class="fa -regular fa-bars"></i>
+                                             </div>
+                                        </div>
+                                        <div class="col col-7 d-flex justify-content-start">
+                                             <div class="text">
+                                                  <span>Opciones</span>
+                                             </div>
+                                        </div>
+                                        <div class="col col-sm-2 d-flex justify-content-end">
+                                             <div class="elipsis">
+                                                  <i class="fa -solid fa-ellipsis"></i>
+                                             </div>
+                                        </div>
                                    </div>
-                              </div>
-                              <div class="col d-flex justify-content-start">
-                                   <div class="text">
-                                        <span>Opciones</span>
-                                   </div>
-                              </div>
-                              <div class="col col-2 d-flex justify-content-end">
-                                   <div class="elipsis">
-                                        <i class="fa -solid fa-ellipsis"></i>
-                                   </div>
+                              </a>
+                              <hr>
+          
+                              <div class="containerprestamos">
+                                   <a  class="optionssearch" data-bs-toggle="modal" href="#historicodeprestamos" role="button">
+                                        <dkv class="row d-flex flex-row">
+                                             <div class="col col-sm-2 d-flex justify-content-start">
+                                                  <i class="fa -regular fa-arrow-trend-up"></i>
+                                             </div>
+                                             <div class="col col-7 d-flex justify-content-start text">
+                                                  <span>Histórico de prestamos</span>
+                                             </div>
+                                        </dkv>
+                                   </a>
                               </div>
                          </div>
-                    </a>
-                    <hr>
+               </div>
+               </div>
+               </div>
+<div class="col-sm-6">
+     <div class="card">
+     <div class="card-body">
+               <div class="containersearch ">
+                    <div class="row d-flex flex-row" id="containerserachbuscador">
+                         <div class="col col-sm-1 " >
+                              <div class="iconsearch">
+                                   <i class="fa -solid fa-magnifying-glass"></i>
+                              </div>
+                         </div>
+                         <div class="col-8">
+                              <input type="search" ng-model="searchloans"  ng-init="searchloans = ''"  placeholder="Busca alumno o articulo prestado" id="search">
+                         </div>
+                    </div>
 
-                    <div class="containerprestamos">
-                         <a  class="optionssearch" data-bs-toggle="modal" href="#historicodeprestamos" role="button">
-                              <dkv class="row d-flex flex-row">
-                                   <div class="col col-1 d-flex justify-content-start">
-                                        <i class="fa -regular fa-arrow-trend-up"></i>
-                                   </div>
-                                   <div class="col-7 d-flex justify-content-start">
-                                        <span>Histórico de prestamos</span>
-                                   </div>
-                              </dkv>
+               <div class="close" ng-if="searchloans == ''">
+                    <div class="row d-flex flex-row">
+                         <div class="col col-sm-1">
+                              <div class="icon-close">
+                                   <i class="fa -regular fa-circle-xmark"></i>
+                              </div>
+                         </div>
+                         <div class="col-8">
+                              <div class="texts">
+                                   <h2>No hay prestamos</h2>
+                                   <p>Verifique los datos ó busque con otro criterio</p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="containerstudentspage" ng-if="searchloans != ''">
+                    <div class="students" ng-repeat="student in studentslibrary | filter: searchloans "  >
+                         <br>
+                         <a href="./prestamos.html">
+                         <div class="row d-flex flex-row" >
+                              <div class="col col-sm-1 image">
+                                   <img src="{{student.photo}}">
+                              </div>
+                              <div class="col-8 texts">
+                                   <p>
+                                   {{student.name}} {{student.lastname}} - {{student.typecredentials}}
+                                   {{student.story}} - {{student.date}}
+                                   </p>
+                                   <p class="status" style="color:red;">
+                                        {{student.status}} 
+                                   </p>
+                              </div>
+                              <hr>
+                         </div>
                          </a>
                     </div>
                </div>
           </div>
-          <div class="col-6">
-                    <div class="containersearch py-2">
-                         <div class="row" id="containerserachbuscador">
-                              <div class="col col-sm-1 " >
-                                   <div class="iconsearch">
-                                        <i class="fa -solid fa-magnifying-glass"></i>
-                                   </div>
-                              </div>
-                              <div class="col-8">
-                                   <input type="search" ng-model="searchloans"  ng-init="searchloans = ''"  placeholder="Busca alumno o articulo prestado" id="search">
-                              </div>
-                         </div>
-     
-                    <div class="close" ng-if="searchloans == ''">
-                         <div class="row ">
-                              <div class="col col-sm-1">
-                                   <div class="icon-close">
-                                        <i class="fa -regular fa-circle-xmark"></i>
-                                   </div>
-                              </div>
-                              <div class="col-6">
-                                   <div class="texts">
-                                        <h2>No hay prestamos</h2>
-                                        <p>Verifique los datos ó busque con otro criterio</p>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-                    <div class="containerstudentspage" ng-if="searchloans != ''">
-                         <div class="students" ng-repeat="student in studentslibrary | filter: searchloans "  >
-                              <br>
-                              <a href="./prestamos.html">
-                              <div class="row" >
-                                   <div class="col-1 image">
-                                        <img src="{{student.photo}}">
-                                   </div>
-                                   <div class="col">
-                                        <p>
-                                        {{student.name}} {{student.lastname}} - {{student.typecredentials}}
-                                        {{student.story}} - {{student.date}}
-                                        </p>
-                                        <p class="status" style="color:red;">
-                                             {{student.status}} 
-                                        </p>
-                                   </div>
-                                   <hr>
-                              </div>
-                              </a>
-                         </div>
-                    </div>
-               </div>
-              
+          </div>
+          </div>
           </div>
      </div>
 
-     <div class="plusbtn">
-          <button class="btn btn-primary" id="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modalplus">
-               <i class="fa-regular fa-plus"></i>
-          </button>
+
+
+<!--Vistas modales del apartado de biblioteca-->
+<!-- Modal opciones articulos -->
+<div class="modal fade" id="articulos" tabindex="-1" aria-labelledby="articulosModalLabel" aria-hidden="true" role="dialog">
+     <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     <div class="modal-header">
+          <h1 class="modal-title fs-5" id="articulosModalLabel">Opciones</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
      </div>
-
-
-     <!--Vistas modales del apartado de biblioteca-->
-     <!-- Modal opciones articulos -->
-     <div class="modal fade" id="articulos" tabindex="-1" aria-labelledby="articulosModalLabel" aria-hidden="true" role="dialog">
-          <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-          <div class="modal-header">
-               <h1 class="modal-title fs-5" id="articulosModalLabel">Opciones</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-               <div class="containerprincipaloptions"  id="body-options">
-                    <a  class="options" data-bs-toggle="modal" href="./articulos.html" role="button">
-                         <div class="row  d-flex flex-row">
-                              <div class="col col-1 d-flex justify-content-start">
-                                   
-                                        <i class="fa-solid fa-note-sticky"></i>
-                                  
-                              </div>
-                              <div class="col-8 d-flex justify-content-start">
-                                        <p>Articulos</p>
-                                   
-                              </div>
-                              <div class="col col-3 d-flex justify-content-end">
-                                   
-                                        <i class="fa -solid fa-chevron-right"></i>
-                    
-                              </div>
+     <div class="modal-body">
+          <div class="containerprincipaloptions"  id="body-options">
+               <a  class="options" data-bs-toggle="modal" href="./articulos.html" role="button">
+                    <div class="row  d-flex flex-row">
+                         <div class="col col-sm-1 d-flex justify-content-start">
+                              
+                                   <i class="fa-solid fa-note-sticky"></i>
+                             
                          </div>
-                    </a>
-                    <hr>
-
-                    <a  class="options" data-bs-toggle="modal" href="#editarmodal" role="button">
-                         <div class="row  d-flex flex-row">
-                              <div class="col col-1 d-flex justify-content-start">                        
-                                        <i class="fa -solid fa-gear "></i>
-                              </div>
-                              <div class="col-8 d-flex justify-content-start">
-                                        <div class="text">
-                                             <p>Editar</p>
-                                        </div>
-                              </div>
-                              <div class="col col-3 d-flex justify-content-end">
-                                        <i class="fa -solid fa-ellipsis"></i>
-                              </div>
+                         <div class="col-8 d-flex justify-content-start">
+                                   <p>Articulos</p>
+                              
                          </div>
-                    </a>
-                    <hr>
-                    <div class="radiobtn">
-                         <div class="row">
-                              <div class="col col-lg-4">
-                                   <p>
-                                        Busqueda lector
-                                   </p>
-                              </div>
-
-                              <div class="col col-lg-8 d-flex justify-content-end">
-                                   <label class="switch ">
-                                        <input type="checkbox">
-                                        <span class="slider round"></span>
-                                      </label>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-          </div>
-          <div class="modal-footer">
+                         <div class="col col-sm-3 d-flex justify-content-end">
+                              
+                                   <i class="fa -solid fa-chevron-right"></i>
                
-          </div>
-          </div>
-          </div>
-     </div>
-
-     <!-- Modal Historico de prestamos-->
-     <div class="modal fade" id="historicodeprestamos" tabindex="-1" aria-labelledby="prestamosModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-          <div class="modal-header">
-               <h1 class="modal-title fs-5" id="prestamosModalLabel">Hisotrico de prestamos</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-               <div class="container">
-                    <div class="desde">
-                         <p>Desde</p>
-                         <input type="date" class="date_clase">
-                    </div>
-                    <div class="hasta">
-                         <p>Hasta</p>
-                         <input type="date" class="date_clase">
-                    </div>
-                    <div class="formato">
-                         <div class="row">
-                              <div class="col">
-                                   <p>Seleccionar formato</p>
-                              </div>
-                              <div class="col">
-                                   <select ng-options="option.name for option in formato.options track by option.id" ng-model="formato.A_options" class="combobox" id="combobox-selections">
-                                        <!-- Opciones del Combo -->
-                                   </select>
-                              </div>
                          </div>
                     </div>
-               </div>
-          </div>
-          <div class="modal-footer">
-               <button type="button" class="btn btn-primary" id="btn-save">Guardar cambios</button>
-          </div>
-          </div>
-          </div>
-     </div>
-     
-     <!--Modal editar vista modal opciones-->
-     <div class="modal fade" id="editarmodal" tabindex="-1" aria-labelledby="editarmodalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-          <div class="modal-header">
-               <h1 class="modal-title fs-5" id="editarmodalLabel">Área</h1>
-               <button type="button" class="btn-close"  href="#articulos"  data-bs-toggle="modal"aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="body-options">
-               <div class="title">
-                    <div class="titlep">
-                         <p>Titulo</p>
-                    </div>
-                    <div class="titleinput">
-                         <input type="text" class="inputtext">
-                    </div>
-               </div>
+               </a>
                <hr>
-               <div class="row">
-                    <div class="col">
-                         <div class="text-typearea">
-                              <p>Tipo de área</p>
-                         </div>
-                    </div>
-                    <div class="col">
-                         <select ng-options="option.name for option in areas.options track by option.id" ng-model="areas.A_options" class="combobox" id="combomodal">
-                              <!-- Opciones del Combo -->
-                         </select>
-                    </div>
-               </div>
-               <hr>
-          </div>
-          
-          <div class="modal-footer " id="modal-footer-down">
-               <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#articulos" aria-label="Close" id="btn-delete">Cerrar</button>
-               <button type="button" class="btn btn-primary" id="btn-save-modal">Guardar</button>
-          </div>
-          </div>
-          </div>
-     </div>
-   
-     <!--Modal btn-plus-->
-     <!-- Modal -->
-     <div class="modal fade" id="modalplus" tabindex="-1" aria-labelledby="plusModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg"  id="body-modal">
-          <div class="modal-content">
-          <div class="modal-header">
-               <h1 class="modal-title fs-5" id="plusModalLabel">Información</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-               <div class="containerrequerido">
-                    <div class="container_optionsmodal">
-                         <div class="title_text">
-                              <span>Información del prestamo</span>
-                         </div>
-                         <div class="options-modal py-4">
-                              <a  class="articulos" data-bs-toggle="modal" href="#articulosplus" role="button">
-                                   <div class="row">
-                                        <div class="col col-sm-1">
-                                             <div class="icon-close">
-                                                  <i class="fa -solid fa-thumbtack"></i>
-                                             </div>
-                                        </div>
-                                        <div class="col-6">
-                                             <div class="texts">
-                                                  <h2>Articulos</h2>
-                                                  <p>Sin articulos</p>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </a>
-                              <hr>
-                              <a  class="articulos" data-bs-toggle="modal" href="#alumnosarticulos" role="button">
-                                   <div class="row">
-                                        <div class="col col-sm-1">
-                                             <div class="icon-close">
-                                                  <i class="fa -solid fa-user"></i>
-                                             </div>
-                                        </div>
-                                        <div class="col-6">
-                                             <div class="texts">
-                                                  <h2>Alumno</h2>
-                                                  <p>Sin alumno</p>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </a>
-                         </div>
-                         
-                    </div>
-                    <div class="containerdate">
-                         <div class="options-modal py-4">
-                              <div class="hastaqui">
-                                   <p>Fecha de prestamo</p>
-                                   <input type="date" class="date-input">
-                              </div>
-                              <hr>
-                              <div class="devolucion">
-                                   <p>Fecha de devolución</p>
-                                   <input type="date" class="date-input">
-                              </div>
-                         </div>
-                    </div>
-               </div>
-             
-          </div>
-          <div class="modal-footer">
-               <button type="button" class="btn btn-primary" id="btn-save">Guardar</button>
-          </div>
-          </div>
-          </div>
-     </div>
-   
 
-    <!-- Modal articulos plus-->
-     <div class="modal fade" id="articulosplus" tabindex="-1" aria-labelledby="articulosplusModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-          <div class="modal-header">
-               <h1 class="modal-title fs-5" id="articulosplusModalLabel">Artículo</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="plusarticulosbody">
-               <div class="containericon">
+               <a  class="options" data-bs-toggle="modal" href="#editarmodal" role="button">
+                    <div class="row  d-flex flex-row">
+                         <div class="col col-sm-1 d-flex justify-content-start">                        
+                                   <i class="fa -solid fa-gear "></i>
+                         </div>
+                         <div class="col-8 d-flex justify-content-start">
+                                   <div class="text">
+                                        <p>Editar</p>
+                                   </div>
+                         </div>
+                         <div class="col col-sm-3 d-flex justify-content-end">
+                                   <i class="fa -solid fa-ellipsis"></i>
+                         </div>
+                    </div>
+               </a>
+               <hr>
+               <div class="radiobtn">
                     <div class="row">
-                         <div class="col-1">
-                              <div class="iconmenu">
-                                   <i class="fa-solid fa-circle-info"></i>
-                              </div>
+                         <div class="col col-lg-4">
+                              <p>
+                                   Busqueda lector
+                              </p>
+                         </div>
+
+                         <div class="col col-lg-8 d-flex justify-content-end">
+                              <label class="switch ">
+                                   <input type="checkbox">
+                                   <span class="slider round"></span>
+                                 </label>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <div class="modal-footer">
+          
+     </div>
+     </div>
+     </div>
+</div>
+
+<!-- Modal Historico de prestamos-->
+<div class="modal fade" id="historicodeprestamos" tabindex="-1" aria-labelledby="prestamosModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     <div class="modal-header">
+          <h1 class="modal-title fs-5" id="prestamosModalLabel">Hisotrico de prestamos</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+          <div class="container">
+               <div class="desde">
+                    <p>Desde</p>
+                    <input type="date" class="date_clase">
+               </div>
+               <div class="hasta">
+                    <p>Hasta</p>
+                    <input type="date" class="date_clase">
+               </div>
+               <div class="formato">
+                    <div class="row">
+                         <div class="col">
+                              <p>Seleccionar formato</p>
                          </div>
                          <div class="col">
-                              <div class="text">
-                                   <p>Busca el articulo que sera prestado</p>
-                                   <p>Escribe el nombre del articulo o el código de barras en el campo de texto</p>
-                              </div>
+                              <select ng-options="option.name for option in formato.options track by option.id" ng-model="formato.A_options" class="combobox" id="combobox-selections">
+                                   <!-- Opciones del Combo -->
+                              </select>
                          </div>
                     </div>
                </div>
-               <hr>
-               <div class="containermenuarticulos">
-                    <a  class="agregar" data-bs-toggle="modal" href="./articulos.html" role="button">
-                         <div class="row py-3">
-                              <div class="col col-1">
-                                   <div class="iconmenu">
-                                        <i class="fa-solid fa-circle-plus"></i>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="text">
-                                        <p>Agrega un articulo</p>
-                                   </div>
-                              </div>
-                         </div>
-                    </a>
-               </div>
-               <hr>
-               <div class="row" id="containerserachbuscador">
-                    <div class="col col-sm-1 " >
-                         <div class="iconsearch">
-                              <i class="fa -solid fa-magnifying-glass"></i>
-                         </div>
-                    </div>
-                    <div class="col-8">
-                         <input type="search" ng-init="searcharticulos = ''" ng-model="searcharticulos" placeholder="Busca por nombre o codigo de barras" id="search">
-                    </div>
-                    <br>
-                    <div class="containeralumnos " ng-if="searcharticulos != ''">
-                         <div id="containerarticulos" class="row " ng-repeat="articules in articles | filter: searcharticulos " >
-                              <a href="# " class="d-flex flex-row">
-                                   <div class="col-7 d-flex justify-content-start ">
-                                        <p>
-                                             {{articules.name}} {{articules.description}}
-                                        </p>
-                                   </div>
-                                   <div class="col-5 d-flex justify-content-end">
-                                        <i class="fa -solid fa-circle-plus"></i>
-                                   </div>
-                              </a>
-                              <hr>
-                         </div>
-                    </div>
-               </div>
-          </div>
-          
-          </div>
           </div>
      </div>
-   
-     <!--Modal articulos alumnos-->
-     <!-- Modal -->
-     <div class="modal fade" id="alumnosarticulos" tabindex="-1" aria-labelledby="alumnosarticulosModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-          <div class="modal-header">
-               <h1 class="modal-title fs-5" id="alumnosarticulosModalLabel">Alumno</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn-save">Guardar cambios</button>
+     </div>
+     </div>
+     </div>
+</div>
+
+<!--Modal editar vista modal opciones-->
+<div class="modal fade" id="editarmodal" tabindex="-1" aria-labelledby="editarmodalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editarmodalLabel">Área</h1>
+          <button type="button" class="btn-close"  href="#articulos"  data-bs-toggle="modal"aria-label="Close"></button>
+     </div>
+     <div class="modal-body" id="body-options">
+          <div class="title">
+               <div class="titlep">
+                    <p>Titulo</p>
+               </div>
+               <div class="titleinput">
+                    <input type="text" class="inputtext">
+               </div>
           </div>
-          <div class="modal-body" id="modaloptionsalumnos">
-               <div class="containericon-2">
+          <hr>
+          <div class="row">
+               <div class="col">
+                    <div class="text-typearea">
+                         <p>Tipo de área</p>
+                    </div>
+               </div>
+               <div class="col">
+                    <select ng-options="option.name for option in areas.options track by option.id" ng-model="areas.A_options" class="combobox" id="combomodal">
+                         <!-- Opciones del Combo -->
+                    </select>
+               </div>
+          </div>
+          <hr>
+     </div>
+     
+     <div class="modal-footer " id="modal-footer-down">
+          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#articulos" aria-label="Close" id="btn-delete">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btn-save-modal">Guardar</button>
+     </div>
+     </div>
+     </div>
+</div>
+
+<!--Modal btn-plus-->
+<!-- Modal -->
+<div class="modal fade" id="modalplus" tabindex="-1" aria-labelledby="plusModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg"  id="body-modal">
+     <div class="modal-content">
+     <div class="modal-header">
+          <h1 class="modal-title fs-5" id="plusModalLabel">Información</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+          <div class="containerrequerido">
+               <div class="container_optionsmodal">
+                    <div class="title_text">
+                         <span>Información del prestamo</span>
+                    </div>
+                    <div class="options-modal py-4">
+                         <a  class="articulos" data-bs-toggle="modal" href="#articulosplus" role="button">
+                              <div class="row d-flex flex-row">
+                                   <div class="col col-sm-1">
+                                        <div class="icon-close">
+                                             <i class="fa -solid fa-thumbtack"></i>
+                                        </div>
+                                   </div>
+                                   <div class="col-8">
+                                        <div class="texts">
+                                             <h2>Articulos</h2>
+                                             <p>Sin articulos</p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </a>
+                         <hr>
+                         <a  class="articulos" data-bs-toggle="modal" href="#alumnosarticulos" role="button">
+                              <div class="row d-flex flex-row">
+                                   <div class="col col-sm-1">
+                                        <div class="icon-close">
+                                             <i class="fa -solid fa-user"></i>
+                                        </div>
+                                   </div>
+                                   <div class="col-8">
+                                        <div class="texts">
+                                             <h2>Alumno</h2>
+                                             <p>Sin alumno</p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </a>
+                    </div>
+                    
+               </div>
+               <div class="containerdate">
+                    <div class="options-modal py-4">
+                         <div class="hastaqui">
+                              <p>Fecha de prestamo</p>
+                              <input type="date" class="date-input">
+                         </div>
+                         <hr>
+                         <div class="devolucion">
+                              <p>Fecha de devolución</p>
+                              <input type="date" class="date-input">
+                         </div>
+                    </div>
+               </div>
+          </div>
+        
+     </div>
+     <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn-save">Guardar</button>
+     </div>
+     </div>
+     </div>
+</div>
+
+
+<!-- Modal articulos plus-->
+<div class="modal fade" id="articulosplus" tabindex="-1" aria-labelledby="articulosplusModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     <div class="modal-header">
+          <h1 class="modal-title fs-5" id="articulosplusModalLabel">Artículo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body" id="plusarticulosbody">
+          <div class="containericon">
+               <div class="row">
+                    <div class="col-1">
+                         <div class="iconmenu">
+                              <i class="fa-solid fa-circle-info"></i>
+                         </div>
+                    </div>
+                    <div class="col">
+                         <div class="text">
+                              <p>Busca el articulo que sera prestado</p>
+                              <p>Escribe el nombre del articulo o el código de barras en el campo de texto</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <hr>
+          <div class="containermenuarticulos">
+               <a  class="agregar" data-bs-toggle="modal" href="./articulos.html" role="button">
                     <div class="row py-3">
                          <div class="col col-1">
                               <div class="iconmenu">
-                                   <i class="fa-solid fa-circle-info"></i>
+                                   <i class="fa-solid fa-circle-plus"></i>
                               </div>
                          </div>
                          <div class="col">
                               <div class="text">
-                                   <p>Busca el articulo que sera prestado</p>
-                                   <p>Escribe el nombre del articulo o el código de barras en el campo de texto</p>
+                                   <p>Agrega un articulo</p>
                               </div>
                          </div>
                     </div>
+               </a>
+          </div>
+          <hr>
+          <div class="row" id="containerserachbuscador">
+               <div class="col col-sm-1 " >
+                    <div class="iconsearch">
+                         <i class="fa -solid fa-magnifying-glass"></i>
+                    </div>
                </div>
+               <div class="col-8">
+                    <input type="search" ng-init="searcharticulos = ''" ng-model="searcharticulos" placeholder="Busca por nombre o codigo de barras" id="search">
+               </div>
+               <br>
+               <div class="containeralumnos " ng-if="searcharticulos != ''">
+                    <div id="containerarticulos" class="row " ng-repeat="articules in articles | filter: searcharticulos " >
+                         <a href="# " class="d-flex flex-row">
+                              <div class="col-7 d-flex justify-content-start ">
+                                   <p>
+                                        {{articules.name}} {{articules.description}}
+                                   </p>
+                              </div>
+                              <div class="col-5 d-flex justify-content-end">
+                                   <i class="fa -solid fa-circle-plus"></i>
+                              </div>
+                         </a>
+                         <hr>
+                    </div>
+               </div>
+          </div>
+     </div>
+     
+     </div>
+     </div>
+</div>
 
-               <div class="row" id="containerserachbuscador">
-                    <div class="col col-sm-1 " >
-                         <div class="iconsearch">
-                              <i class="fa -solid fa-magnifying-glass"></i>
+<!--Modal articulos alumnos-->
+<!-- Modal -->
+<div class="modal fade" id="alumnosarticulos" tabindex="-1" aria-labelledby="alumnosarticulosModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     <div class="modal-header">
+          <h1 class="modal-title fs-5" id="alumnosarticulosModalLabel">Alumno</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body" id="modaloptionsalumnos">
+          <div class="containericon-2">
+               <div class="row py-3">
+                    <div class="col col-sm-1">
+                         <div class="iconmenu">
+                              <i class="fa-solid fa-circle-info"></i>
                          </div>
                     </div>
                     <div class="col-8">
-                         <input type="search" ng-init="searchmodal = ''" ng-model="searchmodal" placeholder="Busca por nombre o codigo de barras" id="search">
-                    </div>
-
-                    <div class="containerstudentsmodal " ng-if="searchmodal != ''">
-                         <div class="row " ng-repeat="modal in studentmodal | filter: searchmodal " >
-                              <a href="# " class="d-flex justify-content-center">
-                                   <div class="col-2 image d-flex justify-content-start">
-                                        <img src="{{modal.photo}}" >
-                                   </div>
-                                   <div class="col-7 d-flex justify-content-center">
-                                        <p>
-                                             {{modal.name}} -
-                                             
-                                        </p>
-                                        <p>
-                                         {{modal.description}}
-                                        </p>
-                                   </div>
-                                   <div class="col-2 d-flex justify-content-end">
-                                        <i class="fa -solid fa-circle-plus"></i>
-                                   </div>
-                                  
-                              </a>
-                              <hr>
+                         <div class="text">
+                              <h2>Busca el articulo que sera prestado</h2>
+                              <p>Escribe el nombre del articulo o el código de barras en el campo de texto</p>
                          </div>
                     </div>
                </div>
           </div>
-         
-          </div>
+
+          <div class="row" id="containerserachbuscador">
+               <div class="col col-sm-1 " >
+                    <div class="iconsearch">
+                         <i class="fa -solid fa-magnifying-glass"></i>
+                    </div>
+               </div>
+               <div class="col-8">
+                    <input type="search" ng-init="searchmodal = ''" ng-model="searchmodal" placeholder="Busca por nombre o codigo de barras" id="search">
+               </div>
+
+               <div class="containerstudentsmodal " ng-if="searchmodal != ''">
+                    <div class="row " ng-repeat="modal in studentmodal | filter: searchmodal " >
+                         <a href="# " class="d-flex justify-content-center">
+                              <div class="col-2 image d-flex justify-content-start">
+                                   <img src="{{modal.photo}}" >
+                              </div>
+                              <div class="col-7 d-flex justify-content-center">
+                                   <p>
+                                        {{modal.name}} -
+                                        
+                                   </p>
+                                   <p>
+                                    {{modal.description}}
+                                   </p>
+                              </div>
+                              <div class="col-2 d-flex justify-content-end">
+                                   <i class="fa -solid fa-circle-plus"></i>
+                              </div>
+                             
+                         </a>
+                         <hr>
+                    </div>
+               </div>
           </div>
      </div>
-   
+    
+     </div>
+     </div>
+</div>
+
+<div class="plusbtn">
+     <button class="btn btn-primary" id="btn-plus" type="button" data-bs-toggle="modal" data-bs-target="#modalplus">
+          <i class="fa-regular fa-plus"></i>
+     </button>
+</div>
+
      
 </body>
 </html>

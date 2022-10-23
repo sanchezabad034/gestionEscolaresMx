@@ -126,37 +126,43 @@ body{
     background-color: #33cd5f;
     border: #33cd5f;
    }
-    /*Media */
-    @media screen and (min-width: 300px) and (max-width: 599px){
-      .plus-btn{
-        padding-left: 308;
-      }
 
-      .directions{
-        font-size: 15px;
-      }
-    }
-
-    @media screen and (min-width:600px) and (max-width: 767px){
-      .plus-btn{
-        padding-left: 370px;
-      }
-    }
-
-    @media screen and (min-width:768px) and (max-width: 991px){
-      .plus-btn{
-        padding-left: 520px;
-      }
-    }
-
-    @media screen and (min-width:992px)and (max-width: 1316px){
-      
-      .plus-btn{
-        padding-left: 170px;
-      }
-    }
-
-  
+   #body-card{
+    width: 100%;
+   }
+ 
    
+          /*Media */
+          @media screen and (min-width: 300px) and (max-width: 599px){
+            .plusbtn{
+              padding-left: 120px;
+            }
+      
+            .title_principal p{
+              font-size: 12px;
+            }
 
-  
+            .title_principal h2{
+              font-size: 12px;
+            }
+      
+          }
+      
+          @media screen and (min-width:600px) and (max-width: 767px){
+            .plusbtn{
+              padding-left: 270px;
+            }
+          }
+      
+          @media screen and (min-width:768px) and (max-width: 991px){
+            .plusbtn{
+              padding-left: 350px;
+            }
+          }
+      
+          @media screen and (min-width:992px)and (max-width: 1316px){
+            
+            .plusbtn{
+              padding-left: 470px;
+            }
+          }
