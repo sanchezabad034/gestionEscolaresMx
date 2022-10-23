@@ -484,16 +484,59 @@
   color: #fff;
 }
 
+.monto input{
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.cometario textarea{
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.containersettingmodal {
+  font-size: 22px;
+}
+
+.containersettingmodal p{
+  font-size: 15px;
+}
+
+.containersettingmodal a{
+  text-decoration: none;
+  color: #111;
+}
+
+.containersettingmodal a:hover{
+  color: #111;
+}
+
+.inputnumber:focus{
+  outline: none;
+}
+
 .inputsave{
   border: none;
+}
+
+.card{
+  width: 26.7rem;
 }
 
 .inputsave:focus{
   outline:0; 
 }
+
+.modal-body-delete{
+  height: 245px;
+}
  /*Media */
 /*Dispositivos mobiles*/
- @media (max-width: 600px){
+ @media screen and (min-width: 300px) and (max-width: 599px){
     .opciones_title h5{
       margin-left: -130px;
       }      
@@ -511,10 +554,35 @@
       #plus-btn{
         margin-left: 270px;
       }
+
+      
+      #btn-recargar{
+        font-size: 10px;
+      }
+
+      #btn-report{
+        font-size: 10px;
+      }
+
+      #btn-sesiones{
+        font-size: 10px;
+      }
+
+      #btn-conceptos{
+        font-size: 10px;
+      }
+
+      #btn-becas{
+        font-size: 10px;
+      }
+
+      .serachinput{
+        width: 77%;
+      }
             
   }
 /*Tablet*/
-  @media (max-width: 768px){
+  @media screen and (min-width:600px) and (max-width: 767px){
     .opciones_title h5{
       margin-left: -130px;
       }      
@@ -532,11 +600,12 @@
       #plus-btn{
         margin-left: 370px;
       }
+
             
   }
 
   /*laptop*/
-  @media (max-width: 992px){
+  @media screen and (min-width:768px) and (max-width: 991px){
     .opciones_title h5{
       margin-left: -130px;
       }      
@@ -558,7 +627,7 @@
   }
 
     /*Large screen*/
-    @media (max-width: 1200px){
+    @media screen and (min-width:992px)and (max-width: 1316px){
       .opciones_title h5{
         margin-left: -10px;
         }      
@@ -576,5 +645,15 @@
         #plus-btn{
           margin-left: 170px;
         }
-              
+
+        .container_titles{
+          width: 100px;
+          margin-left: 130px;
+        }
+        
+        .card{
+          width: 225px;
+          margin-left: 90px;
+        }
+        
     }

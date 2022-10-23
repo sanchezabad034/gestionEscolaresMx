@@ -41,13 +41,16 @@
             </div>
             <input type="text" class="serachinput" placeholder="Buscar alumno" aria-label="Username" aria-describedby="basic-addon1">
           </div>
+
+          
+
          
           <!--Butones-->
           <div class="buttons">
                <button type="button" ng-click="reload()" class="btn btn-primary" id="btn-recargar"><i class="fa fa-light fa-arrows-rotate"></i> Recargar</button>
               
                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" >
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalToggleLabel">Sesiones</h5>
@@ -55,11 +58,11 @@
                         </div>
                         <div class="modal-body">
                               <form>
-                                   <select ng-options="option.name for option in data_sesion.options track by option.id" ng-model="data_sesion.A_options" class="combobox">
+                                   <select ng-options="option.name for option in data_sesion.options track by option.id" ng-model="data_sesion.A_options" class="combobox" >
                                    <!-- Opciones del Combo -->
                                    </select>
                             </form>
-                            <div class="containertable">
+                            
                               <div class="table-responsive">
                                 <table class="table table-bordered">
                                       <thead>
@@ -75,9 +78,22 @@
                                       <th scope="col">CAJERO (A)</th>
                                       </tr>
                                       </thead>
+                                      <tbody ng-repeat="table in table_Modal">
+                                        <tr>
+                                          <td>{{table.id}}</td>
+                                          <td>{{table.status}}</td>
+                                          <td>{{table.date}}</td>
+                                          <td>{{table.cut}}</td>
+                                          <td>{{table.fondo}}</td>
+                                          <td>{{table.monto}}</td>
+                                          <td>{{table.total}}</td>
+                                          <td>{{table.diferencia}}</td>
+                                          <td>{{table.cajero}}</td>
+                                        </tr>
+                                      </tbody>
                                 </table>
                               </div>
-                          </div>
+                         
                         </div>
                         <div class="modal-footer">
                           <button class="btn btn-primary" data-bs-target="#pagosnewsession" data-bs-toggle="modal" id="btn-sesion-modal">Nueva Sesión</button>
@@ -269,6 +285,230 @@
                   <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="btn-becas"><i class="fa-solid fa-star"></i> Becas</a>  
           </div>
         </div>
+        <br>
+        <!--Table-->
+        <div class="table-responsive" ng-if="data_sesion.A_options.id !='1' " style="background-color: #fff;" id="table">
+          <table class="table caption-top " >
+            <div class="d-flex  mb-3 py-2">
+                <a class="btn btn-success " data-bs-toggle="modal" href="#EntradaModal" role="button"><i class="fa -solid fa-angle-up"></i> Entrada</a>
+              
+              
+                <button class="btn btn-danger " type="submit" data-bs-toggle="modal" data-bs-target="#SalidaModal"><i class="fa -solid fa-angle-down"></i> Salida</button>
+              
+              
+                <button class="btn btn-primary " type="submit" data-bs-toggle="modal" data-bs-target="#"><i class="fa -solid fa-lock"></i> Corte</button>
+              
+              </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa -solid fa-magnifying-glass"></i></span>
+                  <input type="text" class="form-control" ng-model="search_table_pagos" placeholder="Buscar en los pagos registrados" aria-label="Username" aria-describedby="basic-addon1">
+                </div>            
+              <thead>
+                <tr>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Folio</th>
+                  <th scope="col">Forma de pago</th>
+                  <th scope="col">Alumno</th>
+                  <th scope="col">Concepto</th>
+                  <th scope="col">Monto</th>
+                  <th scope="col">Recibido</th>
+                  <th scope="col">Comentario</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="tables in datostable | filter: {id_datasesion:data_sesion.A_options.id} | filter:search_table_pagos" >
+                  <tr >
+                    <td>{{tables.date}}</td>
+                    <td>{{tables.folio}}</td>
+                    <td>
+                      <select ng-options="option.name for option in methodspage.options track by option.id" ng-model="methodspage.A_options" class="combobox" >
+                        <!-- Opciones del Combo -->
+                        </select>
+                    </td>
+                    <td>{{tables.Alumno}}</td>
+                    <td>{{tables.Concepto}}</td>
+                    <td>{{tables.monto}}</td>
+                    <td>
+                      
+                      {{tables.Adeudo}}
+                    </td>
+                    <td>
+                      {{tables.comentario}}
+                    </td>
+                    <td>
+                      <a class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#Setting_modal" role="button"><i class="fa -solid fa-gear"></i></a>
+                      <button class="btn btn-primary" type="submit"><i class="fa -solid fa-print"></i></button>
+
+                    </td>
+                  </tr>
+              </tbody>
+          
+          </table>
+        </div>
         
+        <!--Modal entrada-->
+        <div class="modal fade" id="EntradaModal" tabindex="-1" aria-labelledby="EntradaModallabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="EntradaModallabel">Entrada de efectivo</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="containerentrada">
+                  <div class="monto">
+                    <p>Monto</p>
+                    <input type="number" class="inputnumber">
+                  </div>
+                  <div class="cometario">
+                    <p>Comentario</p>
+                    <textarea class="inputnumber" placeholder="Escriba el motivo de la entrada de efectivo" id="" cols="30" rows="10"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="btn-sesion-modal" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <!--Modal salida-->
+        <div class="modal fade" id="SalidaModal" tabindex="-1" aria-labelledby="SalidaModallabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="SalidaModallabel">Salida de efectivo</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="containerentrada">
+                  <div class="monto">
+                    <p>Monto</p>
+                    <input type="number" class="inputnumber">
+                  </div>
+                  <div class="cometario">
+                    <p>Comentario</p>
+                    <textarea class="inputnumber" placeholder="Escriba el motivo de la entrada de efectivo" id="" cols="30" rows="10"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="btn-sesion-modal" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!--Modal borrar-->
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm modal-fullscreen-sm-down">
+            <div class="modal-content ">
+              
+              <div class="modal-body-delete ">
+                <div class="containermessagedelete ">
+                  <h3 class="d-flex justify-content-center">Confirmación</h3>
+                  <h5>¿Estas seguro/a de ELIMINAR el pago?</h5>
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Si</button>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>   
+        
+        <!--Modal settings-->
+        <div class="modal fade" id="Setting_modal" tabindex="-1" aria-labelledby="SettingModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="SettingModalLabel">Menú de pagos</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                
+                <div class="containersettingmodal" >
+                  <a href="">
+                  <div class="printer ">
+                    <div class="row align-items-start">
+                      <div class="col-1"><i class="fa -solid fa-print"></i></div>
+                      <div class="col-7">
+                        <h2 class="h5">Imprimir</h2>
+                        <p>Conecta un impresora de tickets</p>
+                      </div>
+                      <div class="col-3 d-flex justify-content-end"><i class="fa -solid fa-chevron-right"></i></div>
+                    </div>
+                  </a>
+                  </div>
+                  <hr>
+                  <div class="containersettingmodal" >
+                    <a href="">
+                    <div class="printer ">
+                      <div class="row align-items-start">
+                        <div class="col-1"><i class="fa -solid fa-at"></i></div>
+                        <div class="col-7">
+                          <h2 class="h5">Folio web</h2>
+                          
+                        </div>
+                        <div class="col-3 d-flex justify-content-end"><i class="fa -solid fa-chevron-right"></i></div>
+                      </div>
+                    </a>
+                    </div>
+                    <hr>
+                    <div class="containersettingmodal" >
+                      <a href="">
+                      <div class="printer ">
+                        <div class="row align-items-start">
+                          <div class="col-1"><i class="fa fa-hashtag"></i></div>
+                          <div class="col-7">
+                            <h2 class="h5">Folio unico</h2>
+                          </div>
+                          <div class="col-3 d-flex justify-content-end"><i class="fa -solid fa-chevron-right"></i></div>
+                        </div>
+                      </a>
+                      </div>
+                      <hr>
+                      <div class="containersettingmodal" >
+                        <a href="">
+                        <div class="printer ">
+                          <div class="row align-items-start">
+                            <div class="col-1"><i class="fa fa-shopping-bag"></i></div>
+                            <div class="col-7">
+                              <h2 class="h5">Genera referencia de pago</h2>
+                              <p>Paga en linea o en oxxo</p>
+                            </div>
+                            <div class="col-3 d-flex justify-content-end"><i class="fa -solid fa-chevron-right"></i></div>
+                          </div>
+                        </a>
+                        </div>
+                        <hr>
+                        <div class="containersettingmodal" >
+                          <a data-bs-toggle="modal" href="#deleteModal" role="button">
+                          <div class="printer ">
+                            <div class="row align-items-start">
+                              <div class="col-1"><i class="fa fa-trash"></i></div>
+                              <div class="col-7">
+                                <h2 class="h5">Eliminar pago </h2>
+                              </div>
+                              <div class="col-3 d-flex justify-content-end"><i class="fa -regular fa-circle-xmark" style="color: red;"></i></div>
+                            </div>
+                          </a>
+                          </div>
+                          <hr>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          
+
+          
+      
+        
+
+
 </body>
 </html>

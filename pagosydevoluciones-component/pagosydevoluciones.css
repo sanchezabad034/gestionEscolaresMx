@@ -10,7 +10,7 @@ body{
      background-color: #fff;
    }
  
-   .titles h1 {
+   .titles h1 { 
      font-size: 18px;
    }
 
@@ -127,13 +127,34 @@ body{
     border: #33cd5f;
    }
     /*Media */
-/*Dispositivos mobiles*/
- @media (max-width: 600px){
-  #btn-plus{
-      margin-left: 250px;
+    @media screen and (min-width: 300px) and (max-width: 599px){
+      .plus-btn{
+        padding-left: 308;
+      }
+
+      .directions{
+        font-size: 15px;
+      }
     }
-          
-  }
+
+    @media screen and (min-width:600px) and (max-width: 767px){
+      .plus-btn{
+        padding-left: 370px;
+      }
+    }
+
+    @media screen and (min-width:768px) and (max-width: 991px){
+      .plus-btn{
+        padding-left: 520px;
+      }
+    }
+
+    @media screen and (min-width:992px)and (max-width: 1316px){
+      
+      .plus-btn{
+        padding-left: 170px;
+      }
+    }
 
   
    

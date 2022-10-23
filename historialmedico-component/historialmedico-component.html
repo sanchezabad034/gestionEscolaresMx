@@ -34,17 +34,16 @@
     <script src="../historialmedico-component/historialmedico-component.js"></script>
     <script src="..//historialmedico-component/googlle-charts.js"></script>
     <!--google charts-->
-    <script type="text/javascript"
-      src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <script>
-      //script de graficas para problemas
-          google.charts.load('current', {'packages':['corechart']});
-          google.charts.setOnLoadCallback(drawVisualization);
+    <script type="text/javascript">
+      //script de graficas para tallas
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawchart);
 
-          function drawVisualization() {
-          // Some raw data (not necessarily accurate)
-          var data = google.visualization.arrayToDataTable([
+      function drawchart() {
+      // Some raw data (not necessarily accurate)
+      var data = google.visualization.arrayToDataTable([
           ['problemas', ''],
           ['baja_visión',  0      ],
           ['lentes',  0 ],
@@ -62,19 +61,21 @@
           ['realiza_deporte', 0],
           ['empleo', 0],
           ['hijos', 0],
-          ]);
+      
+      ]);
 
-          var options = {
-          title : 'Enfermedades de la comunidad estudiantil FEBRERO - JULIO 2022',
-          seriesType: 'bars',
-          
-          };
+      var options = {
+      title: 'Enfermedades de la comunidad estudiantil, Febrero - Julio 2022',
+      seriesType: 'bars',
+      series: {5: {type: ''}}
+      };
 
-          var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-          chart.draw(data, options);
-          }
-     </script>
-    <script>
+      var chart = new google.visualization.ComboChart(document.getElementById('columnchart_material'));
+      chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
   //script de graficas para tallas
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawVisualization);
@@ -116,7 +117,7 @@
         <h1>Salud</h1>
       </div>
     </div>
-
+ 
     <!-- Button trigger modal -->
     <i class="fa fa-light fa-bars" id="menu"></i>
     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
@@ -166,10 +167,11 @@
       </div>
     </div>
 
-    <div class="container-graphics">
-      <div id="chart_div" style="width: 994px; height:600px;" ></div>
-      <div id="chart_tallas" style="width: 309px; height: 261px;"></div>
-
+    <div class="container-graphics" id="chart_wrap">
+      <div id="columnchart_material"  ></div>
+   
+        <div id="chart_tallas" ></div>
+      
     </div>
 
     <div class="table">

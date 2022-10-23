@@ -3,7 +3,7 @@ var pagos= angular.module('pagos', []);
 pagos.controller('pagosController', function($scope){
      $scope.data_sesion={
          options:[
-          {id: '1', name:'Sesion                  --SELECCIONA UNA SESION--'}, 
+          {id: '1', name:'Sesion                  --SELECCIONA UNA SESION--',status: true, view: 'invisible' }, 
           {id:'2', date: '2020-07-08', name:'Por Carlos Villa'}, 
           {id:'3', date: '2020-07-08', name:'Por Carlos Villa'},
           {id:'4', date: '2020-07-08', name:'Por Carlos Villa'},
@@ -12,15 +12,99 @@ pagos.controller('pagosController', function($scope){
           {id:'7', date: '2020-07-08', name:'Por Carlos Villa'},
           {id:'8', date: '2020-07-07', name:'Por Carlos Villa'},
           {id:'9', date: '2020-07-06', name:'Por Carlos Villa'},
-          {id:'10', date: '2020-02-04', name:'Por Carlos Villa'},
+          {id:'10', date: '2020-02-04', name:'Por Carlos Villa'}, 
           {id:'11', date: '2020-01-16', name:'Por David Berúmen'},
           {id:'12', date: '2020-01-14', name:'Por David Berúmen'},
           {id:'13', date: '2020-01-14', name:'Por Ricardo Gonzalo Paez Rojas'},
           {id:'14', date: '2020-01-14', name:'Por David Berúmen'},
           {id:'15', date: '2020-01-14', name:'Por David Berúmen'},
          ],
-         A_options:{id:'1', name:'Sesion                               --SELECCIONA UNA SESION--'}
+         A_options:{id:'1', name:'Sesion                               --SELECCIONA UNA SESION--', view:'invisible'}
      };
+
+     
+
+     $scope.datostable=[
+        {id:'1', date:'21/10/2022', folio:'Folio', Alumno:'', Concepto:'Concepto', monto:'0.00',comentario:"" ,recibido:'0.00', id_datasesion: '2'}, 
+        {id:'2', date:'31/07/2020', folio:'224', Alumno:'MIRANDA AMADOR ANTONIO', Concepto:'ENTRADA',comentario:"", monto:'45.00', Adeudo:"$45.00" , id_datasesion: '2'},
+
+        {id:'3', date:'28/07/2020', folio:'218', Alumno:'MIRANDA AMADOR ANTONIO', Concepto:'Entrada', comentario:"",monto:'45.00', Adeudo:'$45.00' ,id_datasesion: '3'}, 
+        {id:'4', date:'28/07/2020', folio:'217', Alumno:'GUZMAN FLORES OCTAVIO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$45.00' ,id_datasesion: '3'}, 
+        {id:'5', date:'28/07/2020', folio:'216', Alumno:'EBRARD IBARRA MORTY', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'%0.00' ,id_datasesion: '3'}, 
+        {id:'6', date:'28/07/2020', folio:'215', Alumno:'GARCIA ZARAGOZA GUSTAVO', Concepto:'Entrada', comentario:"",monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '3'},
+        
+        {id:'7', date:'08/07/2020', folio:'214', Alumno:'GUZMAN FLORES OCTAVIO', Concepto:'Entrada', comentario:"",monto:'45.00', Adeudo:'$45.00' ,id_datasesion: '4'}, 
+        {id:'8', date:'08/07/2020', folio:'213', Alumno:'GONZALEZ GUTIERREZ GUSTAVO', Concepto:'Entrada', comentario:"",monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '4'}, 
+        {id:'9', date:'08/07/2020', folio:'212', Alumno:'GARCIA ZARAGOZA GUSTAVO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$45.00' ,id_datasesion: '4'}, 
+        {id:'10', date:'08/07/2020', folio:'211', Alumno:'EBRARD IBARRA MORTY', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$45.00' ,id_datasesion: '4'}, 
+        {id:'11', date:'08/07/2020', folio:'210', Alumno:'AMADOR MIRANDA JUAN', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '4'}, 
+
+        {id:'12', date:'08/07/2020', folio:'209', Alumno:'PEYRO MALDONADO MORTY', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '5'}, 
+        {id:'13', date:'08/07/2020', folio:'208', Alumno:'GUZMAN FLORES OCTAVIO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$45.00' ,id_datasesion: '5'}, 
+        {id:'14', date:'08/07/2020', folio:'207', Alumno:'AMADOR MIRANDA JUAN', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '5'},
+        
+        {id:'15', date:'08/07/2020', folio:'206', Alumno:'ZAVALA MATURINO ERIKA', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '6'},
+        {id:'16', date:'08/07/2020', folio:'205', Alumno:'MURILLO FLORES MILDRED', Concepto:'Entrada', comentario:"",monto:'0.00', Adeudo:'$0.00' ,id_datasesion: '6'},
+        {id:'17', date:'08/07/2020', folio:'204', Alumno:'MIRANDA AMADOR ANTONIO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '6'},
+        {id:'18', date:'08/07/2020', folio:'203', Alumno:'GONZALEZ GUTIERREZ GUSTAVO', Concepto:'Entrada', comentario:"",monto:'0.00', Adeudo:'$0.00' ,id_datasesion: '6'},
+        {id:'19', date:'08/07/2020', folio:'202', Alumno:'AMADOR MIRANDA JUAN', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '6'},
+
+        {id:'20', date:'08/07/2020', folio:'201', Alumno:'GUADIAN SINATRA OCTAVIO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '7'},
+        {id:'21', date:'08/07/2020', folio:'200', Alumno:'GARCIA ZARAGOZA GUSTAVO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '7'},
+        {id:'22', date:'08/07/2020', folio:'199', Alumno:'EBRARD IBARRA MORTY', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '7'},
+        {id:'23', date:'08/07/2020', folio:'198', Alumno:'AMADOR MIRANDA JUAN', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '7'},
+
+        {id:'24', date:'08/07/2020', folio:'197', Alumno:'GUZMAN FLORES OCTAVIO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '8'},
+        {id:'25', date:'08/07/2020', folio:'196', Alumno:'GUADIAN SINATRA OCTAVIO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '8'},
+        {id:'26', date:'08/07/2020', folio:'195', Alumno:'GONZALEZ GUTIERREZ GUSTAVO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '8'},
+        {id:'27', date:'08/07/2020', folio:'194', Alumno:'GARCIA ZARAGOZA GUSTAVO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '8'},
+        {id:'28', date:'08/07/2020', folio:'193', Alumno:'EBRARD IBARRA MORTY', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '8'},
+        {id:'29', date:'08/07/2020', folio:'192', Alumno:'AMADOR MIRANDA JUAN', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '8'},
+
+        {id:'30', date:'08/07/2020', folio:'191', Alumno:'MIRANDA AMADOR ANTONIO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '9'},
+        {id:'31', date:'08/07/2020', folio:'190', Alumno:'MIRANDA AMADOR ANTONIO', Concepto:'Entrada', comentario:"",monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '9'},
+        {id:'32', date:'08/07/2020', folio:'189', Alumno:'GONZALEZ GUTIERREZ GUSTAVO', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '9'},
+        {id:'33', date:'07/07/2020', folio:'188', Alumno:'AMADOR MIRANDA JUAN', Concepto:'Entrada',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '9'},
+
+        {id:'34', date:'06/07/2020', folio:'182', Alumno:'AMADOR MIRANDA JUAN', Concepto:'Entrada',comentario:"", monto:'60.00', Adeudo:'$0.00' ,id_datasesion: '10'},
+
+        {id:'35', date:'02/07/2020', folio:'181', Alumno:'AMADOR MIRANDA JUAN', Concepto:'Entrada',comentario:"Demo", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'36', date:'02/07/2020', folio:'180', Alumno:'DE LOS REYES NORMA PATRICIA', Concepto:'CREDENCIAL CBTIS110 PRIMERA VEZ',comentario:"", monto:'60.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'37', date:'02/07/2020', folio:'179', Alumno:'', Concepto:'Entrada',comentario:"FALTAN 10", monto:'60.00', Adeudo:'$10.00' ,id_datasesion: '11'},
+        {id:'38', date:'06/02/2020', folio:'178', Alumno:'ZAVALA MATURINO ERIKA', Concepto:'INGENERIA DE SOFTWARE',comentario:"pruebas", monto:'400.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'39', date:'06/02/2020', folio:'177', Alumno:'MURILLO FLORES MILDRED', Concepto:'INGENERIA DE SOFTWARE',comentario:"", monto:'400.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'40', date:'06/02/2020', folio:'176', Alumno:'GONZALEZ GUTIERREZ GUSTAVO', Concepto:'INGENERIA DE SOFTWARE',comentario:"", monto:'400.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'41', date:'06/02/2020', folio:'175', Alumno:'AMADOR MIRANDA JUAN FERNANDO', Concepto:'INGENERIA DE SOFTWARE',comentario:"", monto:'400.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'42', date:'06/02/2020', folio:'174', Alumno:'BERUMEN RAMIREZ DAVID VICTOR', Concepto:'INGENERIA DE SOFTWARE',comentario:"", monto:'400.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'43', date:'05/02/2020', folio:'173', Alumno:'VILLA AVILA BLANCA ESTEFANIA', Concepto:'CREDENCIAL CBTIS130',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'44', date:'05/02/2020', folio:'172', Alumno:'VILLA AVILA BLANCA ESTEFANIA', Concepto:'CREDENCIAL CBTIS110 PRIMERA VEZ',comentario:"", monto:'60.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'45', date:'06/07/2020', folio:'171', Alumno:'', Concepto:'',comentario:"", monto:'00.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'46', date:'06/07/2020', folio:'170', Alumno:'VILLA AVILA BLANCA ESTEFANIA', Concepto:'',comentario:"", monto:'0.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'47', date:'06/07/2020', folio:'169', Alumno:'', Concepto:'CREDENCIAL CBTIS110 PRIMERA VEZ',comentario:"test", monto:'60.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'48', date:'06/07/2020', folio:'168', Alumno:'VILLA AVILA BLANCA ESTEFANIA', Concepto:'CREDENCIAL CBTIS110 PRIMERA VEZ',comentario:"test", monto:'60.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'48', date:'06/07/2020', folio:'168', Alumno:'VILLA AVILA BLANCA ESTEFANIA', Concepto:'CREDENCIAL2019',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'48', date:'06/07/2020', folio:'168', Alumno:'VILLA AVILA BLANCA ESTEFANIA', Concepto:'CREDENCIAL CBTIS130',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'48', date:'06/07/2020', folio:'168', Alumno:'VILLA AVILA BLANCA ESTEFANIA', Concepto:'CREDENCIAL CBTIS110 PRIMERA VEZ',comentario:"", monto:'45.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+        {id:'49', date:'06/07/2020', folio:'167', Alumno:'VILLA AVILA BLANCA ESTEFANIA', Concepto:'CREDENCIAL CBTIS110 PRIMERA VEZ',comentario:"", monto:'60.00', Adeudo:'$0.00' ,id_datasesion: '11'},
+       
+
+       {id:'50', date:'22/10/2022', folio:'Folio', Alumno:'', Concepto:'Concepto', monto:'0.00',comentario:"" ,recibido:'0.00', id_datasesion: '12'}, 
+
+       {id:'51', date:'14/01/2020', folio:'155', Alumno:'ZARAGOZA RAMIREZ DAVID', Concepto:'ALGEBRA',comentario:"", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '13'},
+
+       {id:'52', date:'22/10/2022', folio:'Folio', Alumno:'', Concepto:'Concepto', monto:'0.00',comentario:"" ,recibido:'0.00', id_datasesion: '14'}, 
+
+
+       {id:'53', date:'14/07/2020', folio:'154', Alumno:'ACOSTA BERUMEN ALEJANDRA CECILIA', Concepto:'ALGEBRA',comentario:"ABC", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '15'},
+       {id:'54', date:'14/07/2020', folio:'153', Alumno:'ACOSTA BERUMEN ALEJANDRA CECILIA', Concepto:'ALGEBRA',comentario:"ABC", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '15'},
+       {id:'55', date:'14/07/2020', folio:'152', Alumno:'ACOSTA BERUMEN ALEJANDRA CECILIA', Concepto:'ALGEBRA',comentario:"", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '15'},
+       {id:'56', date:'14/07/2020', folio:'151', Alumno:'ACOSTA BERUMEN ALEJANDRA CECILIA', Concepto:'ALGEBRA',comentario:"", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '15'},
+       {id:'57', date:'14/07/2020', folio:'150', Alumno:'ACOSTA BERUMEN ALEJANDRA CECILIA', Concepto:'ALGEBRA',comentario:"", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '15'},
+       {id:'58', date:'14/07/2020', folio:'149', Alumno:'ACOSTA BERUMEN ALEJANDRA CECILIA', Concepto:'ALGEBRA',comentario:"", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '15'},
+       {id:'59', date:'14/07/2020', folio:'148', Alumno:'ACOSTA BERUMEN ALEJANDRA CECILIA', Concepto:'ALGEBRA',comentario:"", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '15'},
+       {id:'60', date:'14/07/2020', folio:'147', Alumno:'ACOSTA BERUMEN ALEJANDRA CECILIA', Concepto:'ALGEBRA',comentario:"", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '15'},
+       {id:'61', date:'14/07/2020', folio:'146', Alumno:'ACOSTA BERUMEN ALEJANDRA CECILIA', Concepto:'ALGEBRA',comentario:"", monto:'50.00', Adeudo:'$0.00' ,id_datasesion: '15'},
+     ]
 
     $scope.concept={
         options:[
@@ -61,7 +145,7 @@ pagos.controller('pagosController', function($scope){
              {id:'5', name:'Cheque'},
              {id:'6', name:'Transferencia'} 
         ],
-        
+        A_options:{id:'1', name:'Efectivo'}
        }
 
     $scope.students = [
@@ -283,4 +367,23 @@ pagos.controller('pagosController', function($scope){
           
           ]
 
+          $scope.table_Modal=[
+            {id:'278', status:'ABIERTO', date:'2022-09-20', cut:'', fondo:'$0.00', monto:'$0.00', total:'$0.00', diferencia:'', cajero:'Demo'},
+            {id:'277', status:'ABIERTO', date:'2022-09-19', cut:'', fondo:'$0.00', monto:'$0.00', total:'$0.00', diferencia:'', cajero:'Demo'},
+            {id:'224', status:'ABIERTO', date:'2022-07-31', cut:'', fondo:'$870.00', monto:'$0.00', total:'$870.00', diferencia:'', cajero:'Carlos Villa'},
+            {id:'220', status:'Cerrado', date:'2022-07-28', cut:'2020-07-31 13:11:37', fondo:'$550.00', monto:'$90.00', total:'$640.00', diferencia:'$0.00', cajero:'Carlos Villa'},
+            {id:'194', status:'Cerrado', date:'2022-07-08', cut:'2020-07-08 16:04:57', fondo:'$435.00', monto:'$90.00', total:'$525.00', diferencia:'$0.00', cajero:'Carlos Villa'},
+            {id:'193', status:'Cerrado', date:'2022-07-08', cut:'2020-07-08', fondo:'$100.00', monto:'$45.00', total:'$145.00', diferencia:'$0.00', cajero:'Carlos Villa'},
+            {id:'192', status:'Cerrado', date:'2022-07-08', cut:'2020-07-08 15:16:50', fondo:'$250.00', monto:'$135.00', total:'$385.00', diferencia:'$0.00', cajero:'Carlos Villa'},
+            {id:'191', status:'Cerrado', date:'2022-07-08', cut:'2020-07-08 14:45:38', fondo:'$326.00', monto:'$180.00', total:'$506.00', diferencia:'$0.00', cajero:'Carlos Villa'},
+            {id:'190', status:'Cerrado', date:'2022-07-08', cut:'2020-07-08 14:45:38', fondo:'$326.00', monto:'$180.00', total:'$506.00', diferencia:'$0.00', cajero:'Carlos Villa'},
+            {id:'187', status:'Cerrado', date:'2022-07-07', cut:'2020-07-08 13:10:25', fondo:'$234.00', monto:'$180.00', total:'$414.00', diferencia:'$234.00', cajero:'Carlos Villa'},
+            {id:'183', status:'Cerrado', date:'2022-07-06', cut:'2020-07-07 10:54:32', fondo:'$550.50', monto:'$120.00', total:'$670.00', diferencia:'$550.50', cajero:'Carlos Villa'},
+            {id:'45', status:'Cerrado', date:'2022-02-04', cut:'2020-07-06 15:19:01', fondo:'$0.00', monto:'$2,635.00', total:'$2,635.00', diferencia:'$0.00', cajero:'Carlos Villa'},
+            {id:'22', status:'ABIERTO', date:'2022-01-16', cut:'', fondo:'$0.00', monto:'$50.00', total:'$50.00', diferencia:'$0.00', cajero:'David Berumen'},
+            {id:'20', status:'ABIERTO', date:'2022-01-14', cut:'', fondo:'$0.00', monto:'$0.00', total:'$0.00', diferencia:'', cajero:'David Berumen'},
+            {id:'13', status:'ABIERTO', date:'2022-01-14', cut:'', fondo:'$0.00', monto:'$50.00', total:'$50.00', diferencia:'', cajero:'Ricardo Gonzalo Paez Rojas'},
+            {id:'12', status:'ABIERTO', date:'2022-01-14', cut:'', fondo:'$0.00', monto:'$0.00', total:'$0.00', diferencia:'', cajero:'David Berumen'},
+            {id:'11', status:'ABIERTO', date:'2022-01-14', cut:'', fondo:'$0.00', monto:'$450.00', total:'$450.00', diferencia:'', cajero:'David Berumen'},
+          ]
 }); 
