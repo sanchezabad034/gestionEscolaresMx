@@ -70,7 +70,7 @@
    }
 
    .containerprestamos{
-    padding-left: 20px;
+    padding-left: 1px;
    }
    
 
@@ -80,7 +80,7 @@
    }
 
    .iconsearch{
-    padding-left: 14px;
+    padding-left: 3px;
    }
 
    #containerserachbuscador{
@@ -220,7 +220,7 @@
    .title_text{
     border: 1px solid #f5f5f5; 
     background-color: #f5f5f5;
-    height: 41px;
+    height: 51px;
    }
 
    .title_text span{
@@ -322,11 +322,11 @@ input:checked + .slider:before {
 }
 
 .containericon{
-  height: 84.6px;
+  height: 118.6px;
 }
 
 .containericon-2{
-  height: 120px;
+  height: 77px;
 }
 
 .containermenuarticulos a{
@@ -380,7 +380,13 @@ input:checked + .slider:before {
   color: #111;
   font-size: 18px;
 }
+.arrow-up i{
+  padding-right: 30px;
+}
 
+.text-p p{
+  font-size:15px;
+}
    /*Media */
    @media screen and (min-width: 300px) and (max-width: 599px){
     
@@ -396,8 +402,12 @@ input:checked + .slider:before {
       font-size: 15px;
     }
 
-    .texts{
-      width: 100%;
+    .text p{
+      font-size: 15px;
+    }
+
+    .containerprestamos {
+      padding-left: 1px;
     }
   
   }
@@ -427,17 +437,16 @@ input:checked + .slider:before {
       width: 100%;
     }
 
-    .image img{
-      width: 20px;
-      height: 20px;
-    }
+   
 
     .iconsearch i{
       width: 20px;
       height: 20px;
     }
+
+   
   }
-  
+ 
   @media screen and (min-width:768px) and (max-width: 991px){
     
   }

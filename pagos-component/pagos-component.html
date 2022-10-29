@@ -28,28 +28,26 @@
         </style>
 </head>
 <body ng-controller="pagosController">
+
           <div>
                <div class="titles">
                <h1>Pagos</h1>
                </div>
           </div>
           <!--Buscador-->
-         <div class="containersearchbuttons"> 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text icono" id="basic-addon1"><i class="fa -solid fa-search"></i></span>
+         <div class="containersearchbuttons "> 
+          <div class="input-group mb-3 ">
+            <div class="input-group-prepend icono">
+              <span class="input-group-text " id="basic-addon1" ><i class="fa -solid fa-search"></i></span>
             </div>
             <input type="text" class="serachinput" placeholder="Buscar alumno" aria-label="Username" aria-describedby="basic-addon1">
           </div>
 
-          
-
-         
           <!--Butones-->
           <div class="buttons">
-               <button type="button" ng-click="reload()" class="btn btn-primary" id="btn-recargar"><i class="fa fa-light fa-arrows-rotate"></i> Recargar</button>
+               <button type="button" ng-click="reload()" class="btn btn-primary py-1" id="btn-recargar"><i class="fa fa-light fa-arrows-rotate"></i> Recargar</button>
               
-               <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+               <div class="modal fade " id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable" >
                       <div class="modal-content">
                         <div class="modal-header">
@@ -123,9 +121,9 @@
                       </div>
                     </div>
                   </div>
-                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="btn-sesiones"><i class="fa-solid fa-clock" ></i> Sesiones</a>  
+                  <a class="btn btn-primary py-1" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="btn-sesiones"><i class="fa-solid fa-clock" ></i> Sesiones</a>  
 
-               <button type="button" class="btn btn-success" id="btn-report"><a href="./reporte.html"> <i class="fa-solid fa-chart-pie"></i> Reporte</a></button>
+               <button type="button" class="btn btn-success py-1" id="btn-report"><a href="./reporte.html"> <i class="fa-solid fa-chart-pie"></i> Reporte</a></button>
 
                <div class="modal fade" id="exampleModalToggle_2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -223,7 +221,7 @@
                   </div>
                 </div>
               </div>
-              <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle_2" role="button" id="btn-conceptos"><i class="fa-solid fa-folder"></i> Conceptos</a>
+              <a class="btn btn-primary py-1" data-bs-toggle="modal" href="#exampleModalToggle_2" role="button" id="btn-conceptos"><i class="fa-solid fa-folder"></i> Conceptos</a>
                 
 
                <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -282,26 +280,26 @@
                       </div>
                     </div>
                   </div>
-                  <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="btn-becas"><i class="fa-solid fa-star"></i> Becas</a>  
+                  <a class="btn btn-primary py-1" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="btn-becas"><i class="fa-solid fa-star"></i> Becas</a>  
           </div>
         </div>
         <br>
         <!--Table-->
-        <div class="table-responsive" ng-if="data_sesion.A_options.id !='1' " style="background-color: #fff;" id="table">
+        <div class="table-responsive " ng-if="data_sesion.A_options.id !='1' " style="background-color: #fff;" id="table">
           <table class="table caption-top " >
-            <div class="d-flex  mb-3 py-2">
-                <a class="btn btn-success " data-bs-toggle="modal" href="#EntradaModal" role="button"><i class="fa -solid fa-angle-up"></i> Entrada</a>
+            <div class="d-flex  mb-3 ">
+                <a class="btn btn-success my-2" data-bs-toggle="modal" href="#EntradaModal" role="button"><i class="fa -solid fa-angle-up"></i> Entrada</a>
               
               
-                <button class="btn btn-danger " type="submit" data-bs-toggle="modal" data-bs-target="#SalidaModal"><i class="fa -solid fa-angle-down"></i> Salida</button>
+                <button class="btn btn-danger my-2" type="submit" data-bs-toggle="modal" data-bs-target="#SalidaModal"><i class="fa -solid fa-angle-down"></i> Salida</button>
               
               
-                <button class="btn btn-primary " type="submit" data-bs-toggle="modal" data-bs-target="#"><i class="fa -solid fa-lock"></i> Corte</button>
+                <button class="btn btn-primary my-2" type="submit" data-bs-toggle="modal" data-bs-target="#"><i class="fa -solid fa-lock"></i> Corte</button>
               
               </div>
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 input-buscador">
                   <span class="input-group-text" id="basic-addon1"><i class="fa -solid fa-magnifying-glass"></i></span>
-                  <input type="text" class="form-control" ng-model="search_table_pagos" placeholder="Buscar en los pagos registrados" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control input-buscador-focus" ng-model="search_table_pagos" placeholder="Buscar en los pagos registrados" aria-label="Username" aria-describedby="basic-addon1">
                 </div>            
               <thead>
                 <tr>
@@ -347,7 +345,7 @@
         </div>
         
         <!--Modal entrada-->
-        <div class="modal fade" id="EntradaModal" tabindex="-1" aria-labelledby="EntradaModallabel" aria-hidden="true">
+        <div class="modal fade container-fluid" id="EntradaModal" tabindex="-1" aria-labelledby="EntradaModallabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
@@ -374,7 +372,7 @@
         </div>
        
         <!--Modal salida-->
-        <div class="modal fade" id="SalidaModal" tabindex="-1" aria-labelledby="SalidaModallabel" aria-hidden="true">
+        <div class="modal fade container-fluid" id="SalidaModal" tabindex="-1" aria-labelledby="SalidaModallabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
@@ -402,7 +400,7 @@
 
          <!--Modal borrar-->
         <!-- Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal fade container-fluid" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-sm modal-fullscreen-sm-down">
             <div class="modal-content ">
               
@@ -410,8 +408,8 @@
                 <div class="containermessagedelete ">
                   <h3 class="d-flex justify-content-center">Confirmación</h3>
                   <h5>¿Estas seguro/a de ELIMINAR el pago?</h5>
-                  <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-secondary">Cancelar</button>
+                  <div class="d-flex justify-content-center ">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary">Si</button>
                   </div>
                 </div>
@@ -422,7 +420,7 @@
         </div>   
         
         <!--Modal settings-->
-        <div class="modal fade" id="Setting_modal" tabindex="-1" aria-labelledby="SettingModalLabel" aria-hidden="true">
+        <div class="modal fade container-fluid" id="Setting_modal" tabindex="-1" aria-labelledby="SettingModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
               <div class="modal-header">
@@ -503,12 +501,6 @@
                     </div>
                 </div>
               </div>
-          
-
-          
-      
         
-
-
 </body>
 </html>

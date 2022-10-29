@@ -34,39 +34,40 @@
                <h2 >Bibloteca</h2>
           </div>
      </div>
-          <div class="row">
-               <div class="col-sm-6">
-               <div class="card">
+          <div class="row ">
+               <div class="col-lg-6">
+               <div class="container card">
                <div class="card-body">
                               <div class="containerprincipaloptions">
                                    <a  class="options" data-bs-toggle="modal" href="#articulos" role="button">
                                         <div class="row containeroptions  display-flex">
-                                             <div class="col col-sm-2 d-flex justify-content-start">
-                                                  <div class="iconmenu">
+                                             <div class="col col-2 d-flex justify-content-start">
+                                                  
                                                        <i class="fa -regular fa-bars"></i>
-                                                  </div>
+                                                  
                                              </div>
                                              <div class="col col-7 d-flex justify-content-start">
-                                                  <div class="text">
+                                                  
                                                        <span>Opciones</span>
-                                                  </div>
+                                                  
                                              </div>
-                                             <div class="col col-sm-2 d-flex justify-content-end">
-                                                  <div class="elipsis">
+                                             <div class="col col-2 d-flex justify-content-end">
+                                                  
                                                        <i class="fa -solid fa-ellipsis"></i>
-                                                  </div>
+                                                 
                                              </div>
                                         </div>
                                    </a>
                                    <hr>
                
-                                   <div class="containerprestamos">
+                                   <div class="containerprestamos ">
                                         <a  class="optionssearch" data-bs-toggle="modal" href="#historicodeprestamos" role="button">
-                                             <dkv class="row d-flex flex-row">
-                                                  <div class="col col-sm-2 d-flex justify-content-start">
-                                                       <i class="fa -regular fa-arrow-trend-up"></i>
+                                             <dkv class="d-flex flex-row mb-2">
+                                                  <div class=" d-flex justify-content-md-start justify-content-sm-start justify-content-lg-start arrow-up">
+                                                       <i class="  fa -regular fa-arrow-trend-up"></i>
+                                                       
                                                   </div>
-                                                  <div class="col col-7 d-flex justify-content-start text">
+                                                  <div class=" align-self-sm-start align-self-md-start align-self-lg-start">
                                                        <span>Histórico de prestamos</span>
                                                   </div>
                                              </dkv>
@@ -76,30 +77,30 @@
                     </div>
                     </div>
                     </div>
-     <div class="col-sm-6">
+          <div class="col-lg-6">
           <div class="card">
           <div class="card-body">
                     <div class="containersearch ">
-                         <div class="row d-flex flex-row" id="containerserachbuscador">
+                         <div class="containe rrow d-flex flex-row" id="containerserachbuscador">
                               <div class="col col-sm-1 " >
                                    <div class="iconsearch">
                                         <i class="fa -solid fa-magnifying-glass"></i>
                                    </div>
                               </div>
-                              <div class="col-8">
+                              <div class="col-10">
                                    <input type="search" ng-model="searchloans"  ng-init="searchloans = ''"  placeholder="Busca alumno o articulo prestado" id="search">
                               </div>
                          </div>
 
                     <div class="close" ng-if="searchloans == ''">
-                         <div class="row d-flex flex-row">
-                              <div class="col col-sm-1">
+                         <div class="containe r d-flex flex-row">
+                              <div class="col col-sm-1 ">
                                    <div class="icon-close">
                                         <i class="fa -regular fa-circle-xmark"></i>
                                    </div>
                               </div>
-                              <div class="col-8">
-                                   <div class="texts">
+                              <div class="col col-10">
+                                   <div class="texts ">
                                         <h2>No hay prestamos</h2>
                                         <p>Verifique los datos ó busque con otro criterio</p>
                                    </div>
@@ -111,10 +112,10 @@
                               <br>
                               <a href="./prestamos.html">
                               <div class="row d-flex flex-row" >
-                                   <div class="col col-sm-1 image">
+                                   <div class="col col-sm-1 col-lg-2 col-xl-2 image">
                                         <img src="{{student.photo}}">
                                    </div>
-                                   <div class="col-8 texts">
+                                   <div class="col-10 texts">
                                         <p>
                                         {{student.name}} {{student.lastname}} - {{student.typecredentials}}
                                         {{student.story}} - {{student.date}}
@@ -132,13 +133,13 @@
                </div>
                </div>
                </div>
-          </div>
+     </div>
 
      
 
      <!--Vistas modales del apartado de biblioteca-->
      <!-- Modal opciones articulos -->
-     <div class="modal fade" id="articulos" tabindex="-1" aria-labelledby="articulosModalLabel" aria-hidden="true" role="dialog">
+     <div class="modal fade container-fluid" id="articulos" tabindex="-1" aria-labelledby="articulosModalLabel" aria-hidden="true" role="dialog">
           <div class="modal-dialog modal-lg">
           <div class="modal-content">
           <div class="modal-header">
@@ -209,7 +210,7 @@
      </div>
 
      <!-- Modal Historico de prestamos-->
-     <div class="modal fade" id="historicodeprestamos" tabindex="-1" aria-labelledby="prestamosModalLabel" aria-hidden="true">
+     <div class="modal fade container-fluid" id="historicodeprestamos" tabindex="-1" aria-labelledby="prestamosModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
           <div class="modal-content">
           <div class="modal-header">
@@ -248,7 +249,7 @@
      </div>
      
      <!--Modal editar vista modal opciones-->
-     <div class="modal fade" id="editarmodal" tabindex="-1" aria-labelledby="editarmodalLabel" aria-hidden="true">
+     <div class="modal fade container-fluid" id="editarmodal" tabindex="-1" aria-labelledby="editarmodalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
           <div class="modal-content">
           <div class="modal-header">
@@ -281,8 +282,10 @@
           </div>
           
           <div class="modal-footer " id="modal-footer-down">
-               <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#articulos" aria-label="Close" id="btn-delete">Cerrar</button>
-               <button type="button" class="btn btn-primary" id="btn-save-modal">Guardar</button>
+               <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" href="#articulos" aria-label="Close" id="btn-delete">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="btn-save-modal">Guardar</button>
+               </div>
           </div>
           </div>
           </div>
@@ -290,7 +293,7 @@
    
      <!--Modal btn-plus-->
      <!-- Modal -->
-     <div class="modal fade" id="modalplus" tabindex="-1" aria-labelledby="plusModalLabel" aria-hidden="true">
+     <div class="modal fade container-fluid" id="modalplus" tabindex="-1" aria-labelledby="plusModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg"  id="body-modal">
           <div class="modal-content">
           <div class="modal-header">
@@ -303,15 +306,15 @@
                          <div class="title_text">
                               <span>Información del prestamo</span>
                          </div>
-                         <div class="options-modal py-4">
-                              <a  class="articulos" data-bs-toggle="modal" href="#articulosplus" role="button">
-                                   <div class="row d-flex flex-row">
-                                        <div class="col col-sm-1">
-                                             <div class="icon-close">
+                         <div class=" options-modal py-1">
+                              <a  class=" articulos" data-bs-toggle="modal" href="#articulosplus" role="button">
+                                   <div class=" container d-flex flex-row">
+                                        <div class="col col-sm-1 col-md-1 col-lg-1">
+                                             
                                                   <i class="fa -solid fa-thumbtack"></i>
-                                             </div>
+                                             
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-10">
                                              <div class="texts">
                                                   <h2>Articulos</h2>
                                                   <p>Sin articulos</p>
@@ -322,12 +325,12 @@
                               <hr>
                               <a  class="articulos" data-bs-toggle="modal" href="#alumnosarticulos" role="button">
                                    <div class="row d-flex flex-row">
-                                        <div class="col col-sm-1">
-                                             <div class="icon-close">
+                                        <div class="col col-sm-1 col-md-1 col-lg-1">
+                                             
                                                   <i class="fa -solid fa-user"></i>
-                                             </div>
+                                             
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-10">
                                              <div class="texts">
                                                   <h2>Alumno</h2>
                                                   <p>Sin alumno</p>
@@ -372,16 +375,16 @@
           </div>
           <div class="modal-body" id="plusarticulosbody">
                <div class="containericon">
-                    <div class="row">
-                         <div class="col-1">
-                              <div class="iconmenu">
+                    <div class="d-flex flex-row">
+                         <div class="col-sm-1">
+                              <div class="me-3">
                                    <i class="fa-solid fa-circle-info"></i>
                               </div>
                          </div>
-                         <div class="col">
-                              <div class="text">
-                                   <p>Busca el articulo que sera prestado</p>
-                                   <p>Escribe el nombre del articulo o el código de barras en el campo de texto</p>
+                         <div class="col-10">
+                              <div class="text me-2">
+                                   <p>Busca el articulo que sera prestado.
+                                   Escribe el nombre del articulo o el código de barras en el campo de texto</p>
                               </div>
                          </div>
                     </div>
@@ -390,13 +393,13 @@
                <div class="containermenuarticulos">
                     <a  class="agregar" data-bs-toggle="modal" href="./articulos.html" role="button">
                          <div class="row py-3">
-                              <div class="col col-1">
-                                   <div class="iconmenu">
+                              <div class="col col-sm-1 col-md-1 col-lg-1">
+                                   <div class="ms-1">
                                         <i class="fa-solid fa-circle-plus"></i>
                                    </div>
                               </div>
-                              <div class="col">
-                                   <div class="text">
+                              <div class="col-10">
+                                   <div class="text me-3">
                                         <p>Agrega un articulo</p>
                                    </div>
                               </div>
@@ -405,19 +408,19 @@
                </div>
                <hr>
                <div class="row" id="containerserachbuscador">
-                    <div class="col col-sm-1 " >
-                         <div class="iconsearch">
+                    <div class="col col-sm-1 col-md-1 col-lg-1" >
+                         <div class="">
                               <i class="fa -solid fa-magnifying-glass"></i>
                          </div>
                     </div>
-                    <div class="col-8">
+                    <div class="col-9">
                          <input type="search" ng-init="searcharticulos = ''" ng-model="searcharticulos" placeholder="Busca por nombre o codigo de barras" id="search">
                     </div>
                     <br>
                     <div class="containeralumnos " ng-if="searcharticulos != ''">
                          <div id="containerarticulos" class="row " ng-repeat="articules in articles | filter: searcharticulos " >
                               <a href="# " class="d-flex flex-row">
-                                   <div class="col-7 d-flex justify-content-start ">
+                                   <div class="col-7 d-flex justify-content-start text-p">
                                         <p>
                                              {{articules.name}} {{articules.description}}
                                         </p>
@@ -447,16 +450,16 @@
           </div>
           <div class="modal-body" id="modaloptionsalumnos">
                <div class="containericon-2">
-                    <div class="row py-3">
+                    <div class="d-flex flex-row">
                          <div class="col col-sm-1">
-                              <div class="iconmenu">
+                              <div class="me-3">
                                    <i class="fa-solid fa-circle-info"></i>
                               </div>
                          </div>
-                         <div class="col-8">
-                              <div class="text">
-                                   <h2>Busca el articulo que sera prestado</h2>
-                                   <p>Escribe el nombre del articulo o el código de barras en el campo de texto</p>
+                         <div class="col-10">
+                              <div class=" me-2">
+                                   <p>Busca el articulo que sera prestado
+                                   Escribe el nombre del articulo o el código de barras en el campo de texto</p>
                               </div>
                          </div>
                     </div>
@@ -468,24 +471,22 @@
                               <i class="fa -solid fa-magnifying-glass"></i>
                          </div>
                     </div>
-                    <div class="col-8">
+                    <div class="col-10">
                          <input type="search" ng-init="searchmodal = ''" ng-model="searchmodal" placeholder="Busca por nombre o codigo de barras" id="search">
                     </div>
 
                     <div class="containerstudentsmodal " ng-if="searchmodal != ''">
                          <div class="row " ng-repeat="modal in studentmodal | filter: searchmodal " >
                               <a href="# " class="d-flex justify-content-center">
-                                   <div class="col-2 image d-flex justify-content-start">
+                                   <div class="col-sm-1 col-md-1 col-lg-2 image d-flex justify-content-start me-3">
                                         <img src="{{modal.photo}}" >
                                    </div>
                                    <div class="col-7 d-flex justify-content-center">
                                         <p>
-                                             {{modal.name}} -
+                                             {{modal.name}} - {{modal.description}}
                                              
                                         </p>
-                                        <p>
-                                         {{modal.description}}
-                                        </p>
+                                        
                                    </div>
                                    <div class="col-2 d-flex justify-content-end">
                                         <i class="fa -solid fa-circle-plus"></i>

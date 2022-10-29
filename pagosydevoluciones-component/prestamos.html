@@ -30,14 +30,14 @@
           <p>Prestamos</p>
      </div>
 
-     <div class="containerprestamos justify-content-evenly">
+     <div class="containerprestamos justify-content-evenly container-fluid">
           <a data-bs-toggle="modal" href="#modalDevoluciones" role="button">
-               <div class="prestamos justify-content-center">
-                    <div class="row">
-                         <div class="col-1  d-flex justify-content-start">
+               <div class="prestamos justify-content-center ">
+                    <div class="d-flex flex-row">
+                         <div class="col-sm-1  d-flex justify-content-start me-3">
                               <i class="fa -solid fa-circle-check py-2" style="color:#33cd5f;"></i>
                          </div>
-                         <div class="col-7  d-flex justify-content-center">
+                         <div class="col-6  d-flex justify-content-center">
                               <p>
                                    Devuelto - cuentos de tierra mar2
                                    Prestamo: 2018-09-12
@@ -45,7 +45,7 @@
                                    Devuelto: 2019-03-06
                               </p>
                          </div>
-                         <div class="col-4 d-flex justify-content-end py-2">
+                         <div class="col-4 d-flex justify-content-end py-3">
                               <i class="fa -solid fa-chevron-right"></i>
                          </div>
                     </div>
@@ -53,11 +53,11 @@
           </a>
      </div>
 
-     <div class="btnsave">
+     <div class="btnsave container-fluid">
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalplus" style="width:100%">Nuevo prestamo</button>
      </div>
 
-     <div class="modal fade" id="modalplus" tabindex="-1" aria-labelledby="plusModalLabel" aria-hidden="true">
+     <div class="modal fade container-fluid" id="modalplus" tabindex="-1" aria-labelledby="plusModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg"  id="body-modal">
           <div class="modal-content">
           <div class="modal-header">
@@ -70,15 +70,15 @@
                          <div class="title_text">
                               <span>Información del prestamo</span>
                          </div>
-                         <div class="options-modal py-4">
-                              <a  class="articulos" data-bs-toggle="modal" href="#articulosplus" role="button">
-                                   <div class="row">
-                                        <div class="col col-sm-1">
-                                             <div class="icon-close">
+                         <div class=" options-modal py-1">
+                              <a  class=" articulos" data-bs-toggle="modal" href="#articulosplus" role="button">
+                                   <div class=" container d-flex flex-row">
+                                        <div class="col col-sm-1 col-md-1 col-lg-1">
+                                             
                                                   <i class="fa -solid fa-thumbtack"></i>
-                                             </div>
+                                             
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-10">
                                              <div class="texts">
                                                   <h2>Articulos</h2>
                                                   <p>Sin articulos</p>
@@ -88,13 +88,13 @@
                               </a>
                               <hr>
                               <a  class="articulos" data-bs-toggle="modal" href="#alumnosarticulos" role="button">
-                                   <div class="row">
-                                        <div class="col col-sm-1">
-                                             <div class="icon-close">
+                                   <div class="row d-flex flex-row">
+                                        <div class="col col-sm-1 col-md-1 col-lg-1">
+                                             
                                                   <i class="fa -solid fa-user"></i>
-                                             </div>
+                                             
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-10">
                                              <div class="texts">
                                                   <h2>Alumno</h2>
                                                   <p>Sin alumno</p>
@@ -127,148 +127,147 @@
           </div>
           </div>
      </div>
+   
 
-      <!-- Modal articulos plus-->
-      <div class="modal fade" id="articulosplus" tabindex="-1" aria-labelledby="articulosplusModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-          <div class="modal-header">
-               <h1 class="modal-title fs-5" id="articulosplusModalLabel">Artículo</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="plusarticulosbody">
-               <div class="containericon">
-                    <div class="row">
-                         <div class="col-1">
-                              <div class="iconmenu">
-                                   <i class="fa-solid fa-circle-info"></i>
-                              </div>
-                         </div>
-                         <div class="col">
-                              <div class="text">
-                                   <p>Busca el articulo que sera prestado</p>
-                                   <p>Escribe el nombre del articulo o el código de barras en el campo de texto</p>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-               <hr>
-               <div class="containermenuarticulos">
-                    <a  class="agregar" data-bs-toggle="modal" href="./articulos.html" role="button">
-                         <div class="row py-3">
-                              <div class="col col-1">
-                                   <div class="iconmenu">
-                                        <i class="fa-solid fa-circle-plus"></i>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="text">
-                                        <p>Agrega un articulo</p>
-                                   </div>
-                              </div>
-                         </div>
-                    </a>
-               </div>
-               <hr>
-               <div class="row" id="containerserachbuscador">
-                    <div class="col col-1 " >
-                         <div class="iconsearch">
-                              <i class="fa -solid fa-magnifying-glass"></i>
-                         </div>
-                    </div>
-                    <div class="col-8">
-                         <input type="search" ng-init="searcharticulos = ''" ng-model="searcharticulos" placeholder="Busca por nombre o codigo de barras" id="search">
-                    </div>
-                    <br>
-                    <div class="containeralumnos " ng-if="searcharticulos != ''">
-                         <div id="containerarticulos" class="row " ng-repeat="articules in articles | filter: searcharticulos " >
-                              <a href="# " class="d-flex flex-row">
-                                   <div class="col-7 d-flex justify-content-start ">
-                                        <p>
-                                             {{articules.name}} {{articules.description}}
-                                        </p>
-                                   </div>
-                                   <div class="col-5 d-flex justify-content-end">
-                                        <i class="fa -solid fa-circle-plus"></i>
-                                   </div>
-                              </a>
-                              <hr>
-                         </div>
-                    </div>
-               </div>
-          </div>
-          
-          </div>
-          </div>
+   <!-- Modal articulos plus-->
+   <div class="modal fade" id="articulosplus" tabindex="-1" aria-labelledby="articulosplusModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     <div class="modal-header">
+          <h1 class="modal-title fs-5" id="articulosplusModalLabel">Artículo</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
      </div>
-
-      <!--Modal articulos alumnos-->
-     <!-- Modal -->
-     <div class="modal fade" id="alumnosarticulos" tabindex="-1" aria-labelledby="alumnosarticulosModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-          <div class="modal-header">
-               <h1 class="modal-title fs-5" id="alumnosarticulosModalLabel">Alumno</h1>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     <div class="modal-body" id="plusarticulosbody">
+          <div class="containericon">
+               <div class="d-flex flex-row">
+                    <div class="col-sm-1">
+                         <div class="me-3">
+                              <i class="fa-solid fa-circle-info"></i>
+                         </div>
+                    </div>
+                    <div class="col-10">
+                         <div class="text me-2">
+                              <p>Busca el articulo que sera prestado.
+                              Escribe el nombre del articulo o el código de barras en el campo de texto</p>
+                         </div>
+                    </div>
+               </div>
           </div>
-          <div class="modal-body" id="modaloptionsalumnos">
-               <div class="containericon">
+          <hr>
+          <div class="containermenuarticulos">
+               <a  class="agregar" data-bs-toggle="modal" href="./articulos.html" role="button">
                     <div class="row py-3">
-                         <div class="col col-1">
-                              <div class="iconmenu">
-                                   <i class="fa-solid fa-circle-info"></i>
+                         <div class="col col-sm-1 col-md-1 col-lg-1">
+                              <div class="ms-1">
+                                   <i class="fa-solid fa-circle-plus"></i>
                               </div>
                          </div>
-                         <div class="col">
-                              <div class="text">
-                                   <p>Busca el articulo que sera prestado</p>
-                                   <p>Escribe el nombre del articulo o el código de barras en el campo de texto</p>
+                         <div class="col-10">
+                              <div class="text me-3">
+                                   <p>Agrega un articulo</p>
                               </div>
                          </div>
                     </div>
-               </div>
-
-               <div class="row" id="containerserachbuscador">
-                    <div class="col col-1 " >
-                         <div class="iconsearch">
-                              <i class="fa -solid fa-magnifying-glass"></i>
-                         </div>
-                    </div>
-                    <div class="col-8">
-                         <input type="search" ng-init="searchmodal = ''" ng-model="searchmodal" placeholder="Busca por nombre o codigo de barras" id="search">
-                    </div>
-                    <div class="containerstudentsmodal " ng-if="searchmodal != ''">
-                         <div class="row " ng-repeat="modal in studentmodal | filter: searchmodal " >
-                              <a href="# " class="d-flex justify-content-center">
-                                   <div class="col-2 image d-flex justify-content-start">
-                                        <img src="{{modal.photo}}" >
-                                   </div>
-                                   <div class="col-7 d-flex justify-content-center">
-                                        <p>
-                                             {{modal.name}} -
-                                             
-                                        </p>
-                                        <p>
-                                         {{modal.description}}
-                                        </p>
-                                   </div>
-                                   <div class="col-2 d-flex justify-content-end">
-                                        <i class="fa -solid fa-circle-plus"></i>
-                                   </div>
-                                  
-                              </a>
-                              <hr>
-                         </div>
+               </a>
+          </div>
+          <hr>
+          <div class="row" id="containerserachbuscador">
+               <div class="col col-sm-1 col-md-1 col-lg-1" >
+                    <div class="">
+                         <i class="fa -solid fa-magnifying-glass"></i>
                     </div>
                </div>
-          </div>
-         
-          </div>
+               <div class="col-9">
+                    <input type="search" ng-init="searcharticulos = ''" ng-model="searcharticulos" placeholder="Busca por nombre o codigo de barras" id="search">
+               </div>
+               <br>
+               <div class="containeralumnos " ng-if="searcharticulos != ''">
+                    <div id="containerarticulos" class="row " ng-repeat="articules in articles | filter: searcharticulos " >
+                         <a href="# " class="d-flex flex-row">
+                              <div class="col-7 d-flex justify-content-start text-p">
+                                   <p>
+                                        {{articules.name}} {{articules.description}}
+                                   </p>
+                              </div>
+                              <div class="col-5 d-flex justify-content-end">
+                                   <i class="fa -solid fa-circle-plus"></i>
+                              </div>
+                         </a>
+                         <hr>
+                    </div>
+               </div>
           </div>
      </div>
+     
+     </div>
+     </div>
+     </div>
+<!--Modal articulos alumnos-->
+<!-- Modal -->
+<div class="modal fade" id="alumnosarticulos" tabindex="-1" aria-labelledby="alumnosarticulosModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+     <div class="modal-header">
+          <h1 class="modal-title fs-5" id="alumnosarticulosModalLabel">Alumno</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body" id="modaloptionsalumnos">
+          <div class="containericon-2">
+               <div class="d-flex flex-row">
+                    <div class="col col-sm-1">
+                         <div class="me-3">
+                              <i class="fa-solid fa-circle-info"></i>
+                         </div>
+                    </div>
+                    <div class="col-10">
+                         <div class=" me-2">
+                              <p>Busca el articulo que sera prestado
+                              Escribe el nombre del articulo o el código de barras en el campo de texto</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+
+          <div class="row" id="containerserachbuscador">
+               <div class="col col-sm-1 " >
+                    <div class="iconsearch">
+                         <i class="fa -solid fa-magnifying-glass"></i>
+                    </div>
+               </div>
+               <div class="col-10">
+                    <input type="search" ng-init="searchmodal = ''" ng-model="searchmodal" placeholder="Busca por nombre o codigo de barras" id="search">
+               </div>
+
+               <div class="containerstudentsmodal " ng-if="searchmodal != ''">
+                    <div class="row " ng-repeat="modal in studentmodal | filter: searchmodal " >
+                         <a href="# " class="d-flex justify-content-center">
+                              <div class="col-sm-1 col-md-1 col-lg-2 image d-flex justify-content-start me-3">
+                                   <img src="{{modal.photo}}" >
+                              </div>
+                              <div class="col-7 d-flex justify-content-center">
+                                   <p>
+                                        {{modal.name}} - {{modal.description}}
+                                        
+                                   </p>
+                                   
+                              </div>
+                              <div class="col-2 d-flex justify-content-end">
+                                   <i class="fa -solid fa-circle-plus"></i>
+                              </div>
+                             
+                         </a>
+                         <hr>
+                    </div>
+               </div>
+          </div>
+     </div>
+    
+     </div>
+     </div>
+</div>
 
      <!-- Modal Devoluciones-->
-     <div  class="modal fade" id="modalDevoluciones" tabindex="-1" aria-labelledby="modalDevolucionesModalLabel" aria-hidden="true">
+     <div  class="modal fade container-fluid" id="modalDevoluciones" tabindex="-1" aria-labelledby="modalDevolucionesModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
           <div class="modal-content">
           <div class="modal-header">

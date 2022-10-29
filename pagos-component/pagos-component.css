@@ -44,9 +44,7 @@
    }
 
    .containeralumnos{
-    width: 425px;
     border: 1px solid #fff;
-    height: 1980px;
     background-color: #fff;
     
     
@@ -194,7 +192,6 @@
 
  
   .container_alumnos{
-    width: 425px;
     padding-top: 10px; 
   }
 
@@ -216,7 +213,7 @@
   .container_titles{
     margin: 1px solid #ffffff; 
     background-color: #f5f5f5;
-    width: 425px;
+    
     height: 40px;
    
    
@@ -288,7 +285,7 @@
 
   .h-conection{
     margin-top: -2px;
-    margin-left: 40px;
+   
   }
 
   .h-conection h5{
@@ -296,7 +293,7 @@
   }
 
   .p-conection{
-    margin-left: 40px;
+    
     margin-top: -10px;
   }
 
@@ -342,7 +339,7 @@
   }
 
   #btn-opciones{
-    width: 426.98px;
+    
     height: 56px;
     background-color: #ffffff;
     color: #212529;
@@ -423,7 +420,7 @@
  .btn-student {
   background-color: #fff;
   border: none;
-  height: 119px;
+  height: 100px;
  }
  .students-info p{
   font-size: 12px;
@@ -437,16 +434,13 @@
 
 .containerstudents{
   height: 102px;
-  
 }
 
 .opciones_title{
   background-color: #f5f5f5;
 }
 
-.opciones_title h5{
-  padding-left: 320px;
-}
+
 
 .serachinput{
   width: 90%;
@@ -478,7 +472,7 @@
 
 .btn-save{
   height: 100%;
-  width: 100%;
+
   background-color: #11c1f3;
   border: none;
   color: #fff;
@@ -534,13 +528,28 @@
 .modal-body-delete{
   height: 245px;
 }
+
+.icono span{
+  border: none;
+  background-color: #fff;
+}
+
+.input-buscador span{
+  border: none;
+  background-color: #fff;
+}
+
+.input-buscador input{
+  border: none;
+}
+
+.input-buscador-focus:focus{
+  outline: 0; 
+}
  /*Media */
 /*Dispositivos mobiles*/
  @media screen and (min-width: 300px) and (max-width: 599px){
-    .opciones_title h5{
-      margin-left: -130px;
-      }      
-
+  
       .fecha-hasta-container{
         margin-left: 200px;
         margin-top: -50px;
@@ -552,7 +561,7 @@
       }
 
       #plus-btn{
-        margin-left: 270px;
+        margin-left: 110px;
       }
 
       
@@ -583,9 +592,7 @@
   }
 /*Tablet*/
   @media screen and (min-width:600px) and (max-width: 767px){
-    .opciones_title h5{
-      margin-left: -130px;
-      }      
+      
 
       .fecha-hasta-container{
         margin-left: 200px;
@@ -598,17 +605,18 @@
       }
 
       #plus-btn{
-        margin-left: 370px;
+        margin-left: 265px;
       }
 
+      .containerstudents{
+        width: 350px;
+      }
             
   }
 
   /*laptop*/
   @media screen and (min-width:768px) and (max-width: 991px){
-    .opciones_title h5{
-      margin-left: -130px;
-      }      
+     
 
       .fecha-hasta-container{
         margin-left: 200px;
@@ -621,16 +629,14 @@
       }
 
       #plus-btn{
-        margin-left: 520px;
+        margin-left: 360px;
       }
             
   }
 
     /*Large screen*/
     @media screen and (min-width:992px)and (max-width: 1316px){
-      .opciones_title h5{
-        margin-left: -10px;
-        }      
+        
   
         .fecha-hasta-container{
           margin-left: 200px;
@@ -651,9 +657,6 @@
           margin-left: 130px;
         }
         
-        .card{
-          width: 225px;
-          margin-left: 90px;
-        }
+       
         
     }
