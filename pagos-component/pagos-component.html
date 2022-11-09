@@ -319,9 +319,15 @@
                     <td>{{tables.date}}</td>
                     <td>{{tables.folio}}</td>
                     <td>
-                      <select ng-options="option.name for option in methodspage.options track by option.id" ng-model="methodspage.A_options" class="combobox" >
+                      <select  class="combobox" >
                         <!-- Opciones del Combo -->
-                        </select>
+                        <option value="value1">Efectivo</option>
+                        <option value="value2">Tarjeta</option>
+                        <option value="value3">Tarjeta de credito</option>
+                        <option value="value4">Tarjeta de debito</option>
+                        <option value="value5">Cheque</option>
+                        <option value="value6">Transferencia</option>
+                      </select>
                     </td>
                     <td>{{tables.Alumno}}</td>
                     <td>{{tables.Concepto}}</td>

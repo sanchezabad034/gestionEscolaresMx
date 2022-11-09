@@ -62,38 +62,38 @@
                <tbody ng-repeat="table in tablearticulos | filter:search_table" >
                     <tr >
                               <td >
-                                   <div class="table_a">
-                                   <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.id}}</a>
+                                   <div class="table_a" >
+                                   <a data-bs-toggle="modal" href="#modalplus_2_{{table.id}}" role="button" ng-click="ChangeView(table.id-1)">{{table.id}}</a>
                                    </div>
                               </td>
                               <td>
-                                   <div class="table_a">
-                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.barcode}}</a>
+                                   <div class="table_a" >
+                                        <a data-bs-toggle="modal" href="#modalplus_2_{{table.id}}" role="button" ng-click="ChangeView(table.id-1)">{{table.barcode}}</a>
                                    </div>
                               </td>
                               <td>
-                                   <div class="table_a">
-                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.title}}</a>
+                                   <div class="table_a" >
+                                        <a data-bs-toggle="modal" href="#modalplus_2_{{table.id}}" role="button" ng-click="ChangeView(table.id-1)">{{table.title}}</a>
                                    </div>
                               </td>
                               <td>
-                                   <div class="table_a">
-                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.autor}}</a>
+                                   <div class="table_a" >
+                                        <a data-bs-toggle="modal" href="#modalplus_2_{{table.id}}" role="button" ng-click="ChangeView(table.id-1)">{{table.autor}}</a>
                                    </div>
                               </td>
                               <td>
-                                   <div class="table_a">
-                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.editorial}}</a>
+                                   <div class="table_a" >
+                                        <a data-bs-toggle="modal" href="#modalplus_2_{{table.id}}" role="button" ng-click="ChangeView(table.id-1)">{{table.editorial}}</a>
                                    </div>
                               </td>
                               <td>
-                                   <div class="table_a">
-                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.ISBN}}</a>
+                                   <div class="table_a" >
+                                        <a data-bs-toggle="modal" href="#modalplus_2_{{table.id}}" role="button" ng-click="ChangeView(table.id-1)">{{table.ISBN}}</a>
                                    </div>
                               </td>
                               <td>
-                                   <div class="table_a">
-                                        <a data-bs-toggle="modal" href="#modalplus" role="button">{{table.inventario}}</a>
+                                   <div class="table_a" >
+                                        <a data-bs-toggle="modal" href="#modalplus_2_{{table.id}}" role="button" ng-click="ChangeView(table.id-1)">{{table.inventario}}</a>
                                    </div>
                               </td>
                     </tr>
@@ -171,6 +171,75 @@
           </div>
           </div>
      </div>
+
+
+     <div ng-repeat="table in tablearticulos | filter:search_table" >
+<!-- Modal plus -->
+          <div class="modal fade container-fluid" id="modalplus_2_{{table.id}}" tabindex="-1" aria-labelledby="modalplusLabel" aria-hidden="true">
+               <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+               <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalplusLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body" >
+                    <div class="containerrequerido"  >
+                         <div class="requeridotext">
+                              <p>Requerido</p>
+                         </div>
+
+                         <div class="title">
+                              <p>Titulo</p>
+                              <input type="text" placeholder="{{table.title}}">
+                         </div>
+
+                         <div class="inventario">
+                              <p>Inventario</p>
+                              <input type="number" placeholder="{{table.inventario}}">
+                         </div>
+
+                         <div class="containeropcional">
+                              <div class="opcionaltext">
+                                   <p>Opcional</p>
+                              </div> 
+          
+                              <div class="codigodebarras">
+                                   <p>Código de barras</p>
+                                   <input type="text" placeholder="{{table.barcode}}">
+                              </div>
+          
+                              <div class="autor">
+                                   <p>Autor</p>
+                                   <input type="text" placeholder="{{table.autor}}">
+                              </div>
+          
+                              <div class="editorial">
+                                   <p>Editorial</p>
+                                   <input type="text" placeholder="{{table.editorial}}">
+                              </div>
+          
+                              <div class="ISBN">
+                                   <p>ISBN</p>
+                                   <input type="text" placeholder="{{table.ISBN}}">
+                              </div>
+          
+                              <div class="year">
+                                   <p>Año</p>
+                                   <input type="number">
+                              </div>
+                         </div>
+                    </div>
+
+               
+               </div>
+               <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btn-save">Guardar</button>
+               </div>
+               </div>
+               </div>
+          </div>
+     </div>
+      
    
 </body>
 </html>

@@ -266,6 +266,7 @@
      </div>
 </div>
 
+<div ng-repeat="prestamo in prestamos">
      <!-- Modal Devoluciones-->
      <div  class="modal fade container-fluid" id="modalDevoluciones" tabindex="-1" aria-labelledby="modalDevolucionesModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
@@ -277,32 +278,32 @@
           <div class="modal-body">
                <div class="nombrearticulo">
                     <p>Nombre del articulo</p>
-                    <input type="text" class="inputtext">
+                    <input type="text" class="inputtext" placeholder="{{prestamo.name}}">
                </div>
                <hr>
                <div class="nombredelencargado">
                     <p>Nombre del encargado</p>
-                    <input type="text" class="inputtext">
+                    <input type="text" class="inputtext" placeholder="{{prestamo.encargado}}">
                </div>
                <hr>
                <div class="fechadeprestamo">
                     <p>Fecha de prestamo</p>
-                    <input type="date" class="inputtext">
+                    <input type="date" class="inputtext" value="{{prestamo.prestamo}}">
                </div>
                <hr>
                <div class="fehcasdevolucion">
                     <p>Fecha de devolución</p>
-                    <input type="date" class="inputtext">
+                    <input type="date" class="inputtext" value="{{prestamo.devolucion}}">
                </div>
                <hr>
                <div class="fechadevuelto">
                     <p>Fecha devuelto</p>
-                    <input type="date" class="inputtext">
+                    <input type="date" class="inputtext" value="{{prestamo.devuelto}}">
                </div>
           </div>
           </div>
           </div>
      </div>
-   
+</div>  
 </body>
 </html>

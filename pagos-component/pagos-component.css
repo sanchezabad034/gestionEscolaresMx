@@ -5,6 +5,7 @@
 
 .input-group-text{
   height: 38px;
+  width: 100%;
   background-color: #fff;
   border: #fff;
 }

@@ -104,16 +104,53 @@ pagosydevoluciones.controller('pagosController', function($scope){
      ]
 
      $scope.tablearticulos=[
-          {id:'1', barcode:'232456433345', title:'El quijote de la mancha', autor:'Miguel de Cervantes', editorial:'Mundial', ISBN:'w9724927dadd', inventario:'20'},
-          {id:'3', barcode:'', title:'Nausika', autor:'', editorial:'', ISBN:'', inventario:'1'},
-          {id:'4', barcode:'', title:'Julio Verne', autor:'', editorial:'', ISBN:'', inventario:'1'},
-          {id:'6', barcode:'', title:'Cuentos de tierra mar2', autor:'', editorial:'', ISBN:'', inventario:'1'},
-          {id:'117', barcode:'12345678', title:'Your name', autor:'JP', editorial:'TK', ISBN:'TKJP01', inventario:'3'},
-          {id:'156', barcode:'', title:'Quimica', autor:'', editorial:'', ISBN:'', inventario:'1'},
-          {id:'157', barcode:'', title:'Español', autor:'', editorial:'', ISBN:'', inventario:'1'},
-          {id:'179', barcode:'123456789', title:'Test', autor:'', editorial:'', ISBN:'', inventario:'10'},
-          {id:'180', barcode:'1234567', title:'Test2', autor:'', editorial:'', ISBN:'', inventario:'10'},
-          {id:'181', barcode:'ns01', title:'Naruto', autor:'Kishimoto', editorial:'Tokyo', ISBN:'tk01', inventario:'12'},
+          {id:'1', view:'invisible', barcode:'232456433345', title:'El quijote de la mancha', autor:'Miguel de Cervantes', editorial:'Mundial', ISBN:'w9724927dadd', inventario:'20'},
+          {id:'3',view:'invisible', barcode:'', title:'Nausika', autor:'', editorial:'', ISBN:'', inventario:'1'},
+          {id:'4',view:'invisible', barcode:'', title:'Julio Verne', autor:'', editorial:'', ISBN:'', inventario:'1'},
+          {id:'6', view:'invisible',barcode:'', title:'Cuentos de tierra mar2', autor:'', editorial:'', ISBN:'', inventario:'1'},
+          {id:'117', view:'invisible',barcode:'12345678', title:'Your name', autor:'JP', editorial:'TK', ISBN:'TKJP01', inventario:'3'},
+          {id:'156',view:'invisible', barcode:'', title:'Quimica', autor:'', editorial:'', ISBN:'', inventario:'1'},
+          {id:'157', view:'invisible', barcode:'', title:'Español', autor:'', editorial:'', ISBN:'', inventario:'1'},
+          {id:'179', view:'invisible', barcode:'123456789', title:'Test', autor:'', editorial:'', ISBN:'', inventario:'10'},
+          {id:'180', view:'invisible', barcode:'1234567', title:'Test2', autor:'', editorial:'', ISBN:'', inventario:'10'},
+          {id:'181', view:'invisible', barcode:'ns01', title:'Naruto', autor:'Kishimoto', editorial:'Tokyo', ISBN:'tk01', inventario:'12'},
 
+     ] 
+
+     
+     $scope.ChangeView = function(id) {
+          for (let i = 0; i < $scope.tablearticulos.length; i++) {
+              $scope.tablearticulos[id].view = 'visible';
+              if ($scope.tablearticulos[i].id != (id + 1)) {
+                  $scope.tablearticulos[i].view = 'invisible';
+              }
+          }
+      }
+
+     $scope.tablearticulos_2=[
+          {id:'1', barcode:'232456433345', title:'El quijote de la mancha', autor:'Miguel de Cervantes', editorial:'Mundial', ISBN:'w9724927dadd', id_tablearticulos:'1'},
+
+          {id:'3', barcode:'', title:'Nausika', autor:'', editorial:'', ISBN:'', id_tablearticulos:'3'},
+
+          {id:'4', barcode:'', title:'Julio Verne', autor:'', editorial:'', ISBN:'', id_tablearticulos:'4'},
+
+          {id:'6', barcode:'', title:'Cuentos de tierra mar2', autor:'', editorial:'', ISBN:'', id_tablearticulos:'6' },
+
+          {id:'117', barcode:'12345678', title:'Your name', autor:'JP', editorial:'TK', ISBN:'TKJP01',  id_tablearticulos:'117'},
+
+          {id:'156', barcode:'', title:'Quimica', autor:'', editorial:'', ISBN:'', id_tablearticulos:'156'},
+
+          {id:'157', barcode:'', title:'Español', autor:'', editorial:'', ISBN:'', id_tablearticulos:'157'},
+
+          {id:'179', barcode:'123456789', title:'Test', autor:'', editorial:'', ISBN:'',  id_tablearticulos:'179'},
+
+          {id:'180', barcode:'1234567', title:'Test2', autor:'', editorial:'', ISBN:'',  id_tablearticulos:'180'},
+
+          {id:'181', barcode:'ns01', title:'Naruto', autor:'Kishimoto', editorial:'Tokyo', ISBN:'tk01', id_tablearticulos:'181'},
+
+     ] 
+
+     $scope.prestamos=[
+          {id:'1', name:'Cuentos de tierra mar2', encargado: 'Yome Renques' , prestamo:'2018-09-12', devolucion:'2018-09-26', devuelto:'2019-03-06'}
      ]
 })
